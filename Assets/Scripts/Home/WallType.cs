@@ -1,0 +1,1 @@
+﻿public enum WallType { Empty, Wall, Door }
