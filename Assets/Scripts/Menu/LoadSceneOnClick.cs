@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ButtonBehaviour : MonoBehaviour
+public class LoadSceneOnClick : MonoBehaviour
 {
-    public void LoadSceneByIndex(int sceneIndex)
+    public void LoadByIndex(int sceneIndex)
     {
         SceneManager.LoadScene(sceneIndex);
     }

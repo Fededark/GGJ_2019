@@ -503,7 +503,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 551621206}
-        m_MethodName: LoadSceneByIndex
+        m_MethodName: LoadByIndex
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -561,7 +561,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 551621201}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1130275ed158bf4ea82b6c9155a655d, type: 3}
+  m_Script: {fileID: 11500000, guid: 7031a3fec55654241b44a2bac5f1b953, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1054178561
@@ -744,7 +744,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1314001253}
-        m_MethodName: LoadSceneByIndex
+        m_MethodName: LoadByIndex
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -802,7 +802,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1314001248}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1130275ed158bf4ea82b6c9155a655d, type: 3}
+  m_Script: {fileID: 11500000, guid: 7031a3fec55654241b44a2bac5f1b953, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1392394738
