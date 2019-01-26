@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db5c54e66494f3a43bb9ba2ca8381134, type: 3}
-  m_Name: mid
+  m_Script: {fileID: 11500000, guid: f8bfdf0537205d24994d2f581ca16002, type: 3}
+  m_Name: Home Info
   m_EditorClassIdentifier: 
-  walls: 00000000010000000100000000000000
-  room: {fileID: 0}
+  doorDistance: {x: 0.35, y: 0.35}

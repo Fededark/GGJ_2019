@@ -6,7 +6,7 @@ public class Home
     public static Home Instance = null;
 
     public Cell[,] cells;
-    public Vector2 doorDistance;
+    public HomeInfo info;
 
     public Vector3 GetAdjacentPosition(Vector3 v)
     {
@@ -28,12 +28,12 @@ public class Home
             if (yDiff < 0)
             {
                 newY = gridY - 1;
-                adjY = newY + doorDistance.y;
+                adjY = newY + info.doorDistance.y;
             }
             else
             {
                 newY = gridY + 1;
-                adjY = newY - doorDistance.y;
+                adjY = newY - info.doorDistance.y;
             }
 
             if (newY < 0 || newY > cells.GetLength(1) || !CellsExist(gridX, newY))
@@ -48,12 +48,12 @@ public class Home
             if (xDiff < 0)
             {
                 newX = gridX - 1;
-                adjX = newX + doorDistance.x;
+                adjX = newX + info.doorDistance.x;
             }
             else
             {
                 newX = gridX + 1;
-                adjX = newX - doorDistance.x;
+                adjX = newX - info.doorDistance.x;
             }
 
             if (newX < 0 || newX > cells.GetLength(0) || !CellsExist(newX, gridY))

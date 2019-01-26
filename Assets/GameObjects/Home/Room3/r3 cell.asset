@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: db5c54e66494f3a43bb9ba2ca8381134, type: 3}
-  m_Name: r1 cell
+  m_Name: r3 cell
   m_EditorClassIdentifier: 
-  walls: 01000000010000000100000002000000
-  room: {fileID: 11400000, guid: 7f539da4162b96446bee526ecce0d293, type: 2}
+  walls: 01000000010000000200000001000000
+  room: {fileID: 11400000, guid: 38da7706fa1aba14991c50b166183e1c, type: 2}

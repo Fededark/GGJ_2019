@@ -12,14 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9687005129a47174b8ca39727eb92f5d, type: 3}
   m_Name: Room2
   m_EditorClassIdentifier: 
+  hall: 1
   prefab: {fileID: 6211937020329884121, guid: 83fa5a1c7a3a8f94088d863b46a00519, type: 3}
   row1:
-  - {fileID: 11400000, guid: c54744a878d5734428bbdec49623e39f, type: 2}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   row2:
   - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: c54744a878d5734428bbdec49623e39f, type: 2}
   - {fileID: 0}
   row3:
   - {fileID: 0}

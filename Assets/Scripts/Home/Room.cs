@@ -3,6 +3,8 @@
 [CreateAssetMenu(menuName = "GGJ/Home elements/Room")]
 public class Room : ScriptableObject
 {
+    public bool hall = false;
+
     public GameObject prefab;
     public Cell[] row1 = new Cell[3];
     public Cell[] row2 = new Cell[3];

@@ -12,16 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9687005129a47174b8ca39727eb92f5d, type: 3}
   m_Name: lunga
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  hall: 0
+  prefab: {fileID: 6211937020329884121, guid: 1023caddeecaa384a8f15bdcfbde4a46, type: 3}
   row1:
   - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 210afaddfad289e419c52aa8280a6a6f, type: 2}
   - {fileID: 0}
   row2:
   - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 0fd9c6912eee3414c9ebca8d8fde68c6, type: 2}
   - {fileID: 0}
   row3:
   - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 8b51d07084f6d0340b40065d8f35f6da, type: 2}
   - {fileID: 0}

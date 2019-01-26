@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db5c54e66494f3a43bb9ba2ca8381134, type: 3}
   m_Name: bot
   m_EditorClassIdentifier: 
-  walls: 00000000000000000000000000000000
+  walls: 00000000010000000200000001000000
   room: {fileID: 0}
