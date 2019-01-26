@@ -5,7 +5,17 @@ public class Room : ScriptableObject
 {
     public bool hall = false;
 
-    public GameObject prefab;
+    [SerializeField]
+    private GameObject prefab;
+
+    public GameObject GO { get; private set; }
+    public GameObject InstantiateGO(Transform parent)
+    {
+        var go = Instantiate(prefab, parent);
+        GO = go;
+        return go;
+    }
+
     public Cell[] row1 = new Cell[3];
     public Cell[] row2 = new Cell[3];
     public Cell[] row3 = new Cell[3];
@@ -20,7 +30,10 @@ public class Room : ScriptableObject
         {
             shape[c, 0] = row1[c]; 
             shape[c, 1] = row2[c]; 
-            shape[c, 2] = row3[c]; 
+            shape[c, 2] = row3[c];
+            SetRoom(row1[c]);
+            SetRoom(row2[c]);
+            SetRoom(row3[c]);
         }
     }
 

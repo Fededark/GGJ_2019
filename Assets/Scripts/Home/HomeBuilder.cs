@@ -30,12 +30,17 @@ public class HomeBuilder : ScriptableObject
                         home.cells[c + rp.coord.x - 1, r + rp.coord.y - 1] = rp.room.shape[c, r];
                 }
             }
-            var go = Instantiate(rp.room.prefab, parent);
+            var go = rp.room.InstantiateGO(parent);
             go.transform.position = new Vector3(rp.coord.x, rp.coord.y, 0f);
+            go.SetActive(rp.room.hall);
             if (rp.room.hall)
+            {
+                info.hall = rp.room;
                 info.SpawnPoint = go.transform.position;
+            }
         }
         home.info = info;
+        home.Init();
         Home.Instance = home;
         return home;
     }

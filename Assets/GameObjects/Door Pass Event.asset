@@ -9,8 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8bfdf0537205d24994d2f581ca16002, type: 3}
-  m_Name: Home Info
+  m_Script: {fileID: 11500000, guid: 59cf500395d616c4c89768a41a8f6090, type: 3}
+  m_Name: Door Pass Event
   m_EditorClassIdentifier: 
-  doorDistance: {x: 0.35, y: 0.35}
-  doorPassEvent: {fileID: 11400000, guid: 8968330d658db42479bad90328374edf, type: 2}

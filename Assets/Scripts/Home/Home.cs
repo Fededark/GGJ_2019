@@ -8,7 +8,23 @@ public class Home
     public Cell[,] cells;
     public HomeInfo info;
 
-    public Vector3 GetAdjacentPosition(Vector3 v)
+    public void Init()
+    {
+        info.doorPassEvent.OnDoorPassed += OnDoorPassed;
+    }
+
+    public Room RoomAt(Vector2Int coord)
+    {
+        return cells[coord.x, coord.y].room;
+    }
+
+    private void OnDoorPassed(Vector2Int from, Vector2Int to)
+    {
+        cells[from.x, from.y].room.GO.SetActive(false);
+        cells[to.x, to.y].room.GO.SetActive(true);
+    }
+
+    public void TryToMove(Vector3 v)
     {
         var x = v.x;
         var y = v.y;
@@ -20,48 +36,24 @@ public class Home
         float xDiff = x - gridX;
         float yDiff = y - gridY;
 
+
         if (Mathf.Abs(xDiff) < Mathf.Abs(yDiff))
         {
             //Y movement
-            int newY;
-            float adjY;
-            if (yDiff < 0)
-            {
-                newY = gridY - 1;
-                adjY = newY + info.doorDistance.y;
-            }
-            else
-            {
-                newY = gridY + 1;
-                adjY = newY - info.doorDistance.y;
-            }
+            int offset = yDiff < 0 ? -1 : 1;
+            int newY = gridY + offset;
 
-            if (newY < 0 || newY > cells.GetLength(1) || !CellsExist(gridX, newY))
-                return new Vector3(-1, -1, -1);
-
-            return new Vector3(gridX, adjY);
+            if (newY >= 0 && newY < cells.GetLength(1) && CellsExist(gridX, newY))
+                info.doorPassEvent.Raise(new Vector2Int(gridX, gridY), new Vector2Int(gridX, gridY + offset));
         }
         else
         {
-            int newX;
-            float adjX;
-            if (xDiff < 0)
-            {
-                newX = gridX - 1;
-                adjX = newX + info.doorDistance.x;
-            }
-            else
-            {
-                newX = gridX + 1;
-                adjX = newX - info.doorDistance.x;
-            }
+            int offset = xDiff < 0 ? -1 : 1;
+            int newX = gridX + offset;
 
-            if (newX < 0 || newX > cells.GetLength(0) || !CellsExist(newX, gridY))
-                return new Vector3(-1, -1, -1);
-
-            return new Vector3(adjX, gridY);
+            if (newX >= 0 && newX < cells.GetLength(0) && CellsExist(newX, gridY))
+                info.doorPassEvent.Raise(new Vector2Int(gridX, gridY), new Vector2Int(gridX + offset, gridY));
         }
-
     }
 
     public Vector2Int GetAdjacent(Vector3 v)
@@ -73,8 +65,8 @@ public class Home
         int gridY = Mathf.RoundToInt(y);
 
 
-        float xDiff = gridX - x;
-        float yDiff = gridY - y;
+        float xDiff = x - gridX;
+        float yDiff = y - gridY;
 
 
         if (Mathf.Abs(xDiff) < Mathf.Abs(yDiff))

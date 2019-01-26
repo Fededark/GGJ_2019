@@ -125,8 +125,9 @@ GameObject:
   - component: {fileID: 569783192}
   - component: {fileID: 569783191}
   - component: {fileID: 569783190}
+  - component: {fileID: 569783195}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -246,6 +247,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &569783195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 569783189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8498215129667a41879251b04245449, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  homeInfo: {fileID: 11400000, guid: be140c6839345284c98ae519e7464e5b, type: 2}
 --- !u!1 &811765632
 GameObject:
   m_ObjectHideFlags: 0
@@ -358,7 +372,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   home: {fileID: 11400000, guid: 717bb8d2bc5305c4ea71c9c5e0daf49a, type: 2}
-  player: {fileID: 569783189}
+  player: {fileID: 569783195}
 --- !u!4 &937556680
 Transform:
   m_ObjectHideFlags: 0

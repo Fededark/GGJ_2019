@@ -5,13 +5,14 @@ using UnityEngine;
 public class Carpenter : MonoBehaviour
 {
     public HomeBuilder home;
-    public GameObject player;
+    public PlayerDoorMovement player;
 
     // Start is called before the first frame update
     void Start()
     {
         home.Build(transform);
-        player.transform.position = Home.Instance.info.SpawnPoint;
+        player.AssignTo(home.info.hall);
+        player.transform.position = home.info.SpawnPoint;
     }
 
 }

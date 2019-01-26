@@ -22,7 +22,9 @@ public class PlayerMovement : MonoBehaviour
         {
             float moveHorizontal = Input.GetAxis("Horizontal");
             float moveVertical = Input.GetAxis("Vertical");
-            rb.velocity = new Vector2(moveHorizontal, moveVertical) * speed;
+            //rb.velocity = new Vector2(moveHorizontal, moveVertical) * speed;
+
+            rb.velocity = (transform.right * moveHorizontal + transform.up * moveVertical) * speed;
         }
         else
         {
@@ -30,10 +32,4 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public void TeleportTo(Vector3 newPosition)
-    {
-        transform.position = newPosition;
-        rb.velocity = Vector2.zero;
-        //TODO
-    }
 }
