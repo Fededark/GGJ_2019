@@ -3,9 +3,12 @@
 [CreateAssetMenu(menuName = "GGJ/Home elements/Room")]
 public class Room : ScriptableObject
 {
+    public int id;
     public bool hall = false;
     public BoolEvent roomChange;
     public BoolEvent lightChange;
+
+    public int x, y;
 
     private bool light = true;
 
@@ -37,7 +40,12 @@ public class Room : ScriptableObject
             }
         }
         rotation = other.rotation;
+    }
 
+    public void SetCoord(int x, int y)
+    {
+        this.x = x;
+        this.y = y;
     }
 
     private void OnEnable()

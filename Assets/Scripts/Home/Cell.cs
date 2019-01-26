@@ -10,6 +10,7 @@ public class Cell : ScriptableObject
     public const int DOWN = 2;
     public const int LEFT = 3;
 
+    public int id;
     public WallType[] walls = new WallType[4];
     public Room room;
     public BoolEvent[] doorsState = new BoolEvent[4];

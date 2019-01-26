@@ -41,15 +41,15 @@ public class Home
         return coord;
     }
 
-    public void MoveRoom(RoomBehaviour src, Room dest, Vector2Int srcPos, Vector2Int destPos)
+    public void MoveRoom(RoomBehaviour src, Room dest, Vector2Int destPos)
     {
         for (int x = -1; x < 2; x++)
         {
             for (int y = -1; y < 2; y++)
             {
-                var c = GetCell(srcPos.x + x, srcPos.y + y);
+                var c = GetCell(src.room.x + x, src.room.y + y);
                 if (c != null && c.room == src)
-                    cells[srcPos.x + x, srcPos.y + y] = null;
+                    cells[src.room.x + x, src.room.y + y] = null;
             }
         }
         src.room.CopyFrom(dest);
@@ -58,10 +58,11 @@ public class Home
             for (int y = -1; y < 2; y++)
             {
                 if (src.room.HasCell(x,y))
-                    cells[srcPos.x + x, srcPos.y + y] = src.room.GetCell(x, y);
+                    cells[src.room.x + x, src.room.y + y] = src.room.GetCell(x, y);
             }
         }
         src.transform.position = new Vector3(destPos.x, destPos.y, 0f);
+        src.room.SetCoord(destPos.x, destPos.y);
         src.ApplyRotation();
     }
 

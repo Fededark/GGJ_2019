@@ -8,45 +8,49 @@ public class HomeBuilder : ScriptableObject
 {
     public HomeInfo info;
     public Vector2Int size;
-    public RoomPosition[] rooms;
-
-    [System.Serializable]
-    public struct RoomPosition
-    {
-        public Vector2Int coord;
-        public Room room;
-    }
+    public Room[] rooms;
 
     public Home Build(Transform parent)
     {
         Home home = new Home();
         home.cells = new Cell[size.x, size.y];
-        foreach (var rp in rooms)
+        int roomIdx = 1;
+        int cellIdx = 1;
+        foreach (var room in rooms)
         {
+            room.id = roomIdx;
+            roomIdx++;
+            info.roomDict.Add(room.id, room);
             for (int c = 0; c < 3; c++)
             {
                 for (int r = 0; r < 3; r++)
                 {
-                    if (rp.room.shape[c, r] != null)
-                        home.cells[c + rp.coord.x - 1, r + rp.coord.y - 1] = rp.room.shape[c, r];
+                    Cell cell = room.shape[c, r];
+                    if (cell != null)
+                    {
+                        cell.id = cellIdx;
+                        cellIdx++;
+                        info.cellDict.Add(cell.id, cell);
+                        home.cells[c + room.x - 1, r + room.y - 1] = cell;
+                    }
                 }
             }
-            var go = rp.room.InstantiateGO(parent);
-            go.transform.position = new Vector3(rp.coord.x, rp.coord.y, 0f);
-            rp.room.SetVisible(rp.room.hall);
-            if (rp.room.hall)
+            var go = room.InstantiateGO(parent);
+            go.transform.position = new Vector3(room.x, room.y, 0f);
+            room.SetVisible(room.hall);
+            if (room.hall)
             {
-                info.hall = rp.room;
+                info.hall = room;
                 info.SpawnPoint = go.transform.position;
             }
         }
 
-        var shuff = RandomGenerator.global.GetShuffled(new List<RoomPosition>(rooms));
+        var shuff = RandomGenerator.global.GetShuffled(new List<Room>(rooms));
         int split = (shuff.Count + 1) / 2;
         for (int i = 0; i < split; i++)
-            shuff[i].room.Light = false;
+            shuff[i].Light = false;
         for (int i = split; i < shuff.Count; i++)
-            shuff[i].room.Light = true;
+            shuff[i].Light = true;
         info.hall.Light = true;
 
         home.info = info;
