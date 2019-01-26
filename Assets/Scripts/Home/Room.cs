@@ -3,6 +3,7 @@
 [CreateAssetMenu(menuName = "GGJ/Home elements/Room")]
 public class Room : ScriptableObject
 {
+    public GameObject prefab;
     public Cell[] row1 = new Cell[3];
     public Cell[] row2 = new Cell[3];
     public Cell[] row3 = new Cell[3];
@@ -15,37 +16,43 @@ public class Room : ScriptableObject
         shape = new Cell[3,3];
         for (int c=0; c<3; c++)
         {
-            shape[0, c] = row1[c]; 
-            shape[1, c] = row2[c]; 
-            shape[2, c] = row3[c]; 
+            shape[c, 0] = row1[c]; 
+            shape[c, 1] = row2[c]; 
+            shape[c, 2] = row3[c]; 
         }
+    }
+
+    private void SetRoom(Cell c)
+    {
+        if (c != null)
+            c.room = this;
     }
 
     public void Rotate(bool clockwise)
     {
         Cell[,] tmp = new Cell[3,3];
-        for(int r=0;r<3; r++)
+        for(int c=0;c<3; c++)
         {
-            for(int c=0; c<3; c++)
+            for(int r=0; r<3; r++)
             {
                 if (clockwise)
-                    tmp[c, 2 - r] = shape[r, c];
+                    tmp[r, 2 - c] = shape[c, r];
                 else
-                    tmp[2 - c, r] = shape[r, c];
+                    tmp[2 - r, c] = shape[c, r];
             }
         }
 
         rotation = (rotation + (clockwise ? 1 : 4)) % 4;
     }
 
-    public bool HasCell(int r, int c)
+    public bool HasCell(int x, int y)
     {
-        return shape[r, c] != null;
+        return shape[x, y] != null;
     }
 
-    public WallType GetWallType(int r, int c, int side)
+    public WallType GetWallType(int x, int y, int side)
     {
-        Cell cell = shape[r, c];
+        Cell cell = shape[x, y];
         if (cell == null) return WallType.Empty;
         return cell.walls[(side + rotation) % 4];
     }
