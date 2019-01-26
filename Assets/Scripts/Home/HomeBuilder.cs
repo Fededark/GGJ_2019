@@ -32,7 +32,7 @@ public class HomeBuilder : ScriptableObject
             }
             var go = rp.room.InstantiateGO(parent);
             go.transform.position = new Vector3(rp.coord.x, rp.coord.y, 0f);
-            go.SetActive(rp.room.hall);
+            rp.room.SetVisible(rp.room.hall);
             if (rp.room.hall)
             {
                 info.hall = rp.room;

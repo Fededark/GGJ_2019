@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 [CreateAssetMenu(menuName = "GGJ/Home elements/Room")]
-public class Room : ScriptableObject
+public class Room : BoolEvent
 {
     public bool hall = false;
 
@@ -35,6 +35,11 @@ public class Room : ScriptableObject
             SetRoom(row2[c]);
             SetRoom(row3[c]);
         }
+    }
+
+    public void SetVisible(bool visible)
+    {
+        Raise(visible);
     }
 
     private void SetRoom(Cell c)

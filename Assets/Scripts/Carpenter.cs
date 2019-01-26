@@ -1,17 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Carpenter : MonoBehaviour
 {
     public HomeBuilder home;
-    public PlayerDoorMovement player;
+    public GameObject playerPrefab;
 
-    // Start is called before the first frame update
     void Start()
     {
         home.Build(transform);
-        player.AssignTo(home.info.hall);
+        GameObject player = Instantiate(playerPrefab);
+        player.GetComponent<PlayerDoorMovement>().AssignTo(home.info.hall);
         player.transform.position = home.info.SpawnPoint;
     }
 

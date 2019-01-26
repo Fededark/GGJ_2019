@@ -2,7 +2,7 @@ fileFormatVersion: 2
 guid: 12095f3153219514d86e50085415be69
 TextureImporter:
   fileIDToRecycleName:
-    21300000: 55852AFD-FDAC-44A4-A126-C27FCD39610F_0
+    21300000: black
     21300002: room 1x1
   externalObjects: {}
   serializedVersion: 7
@@ -112,6 +112,26 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 1cfcf8c749a47df4da07a6dabc92acd6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black
+      rect:
+        serializedVersion: 2
+        x: 1034
+        y: 817
+        width: 15
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a3adfc2da557784aa2d9e1972854c72
       vertices: []
       indices: 
       edges: []

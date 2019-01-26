@@ -10,18 +10,11 @@ public class Home
 
     public void Init()
     {
-        info.doorPassEvent.OnDoorPassed += OnDoorPassed;
     }
 
     public Room RoomAt(Vector2Int coord)
     {
         return cells[coord.x, coord.y].room;
-    }
-
-    private void OnDoorPassed(Vector2Int from, Vector2Int to)
-    {
-        cells[from.x, from.y].room.GO.SetActive(false);
-        cells[to.x, to.y].room.GO.SetActive(true);
     }
 
     public void TryToMove(Vector3 v)
