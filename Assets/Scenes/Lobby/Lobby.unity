@@ -112,49 +112,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &490631045
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 490631047}
-  - component: {fileID: 490631046}
-  m_Layer: 0
-  m_Name: LobbyBehaviour
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &490631046
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 490631045}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbee40d2f7b120c43b3f104bf37419e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &490631047
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 490631045}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &530561203
 GameObject:
   m_ObjectHideFlags: 0
@@ -167,6 +124,7 @@ GameObject:
   - component: {fileID: 530561205}
   - component: {fileID: 530561204}
   - component: {fileID: 530561207}
+  - component: {fileID: 530561208}
   m_Layer: 0
   m_Name: LobbyManager
   m_TagString: Untagged
@@ -281,7 +239,7 @@ MonoBehaviour:
   m_GamePlayerPrefab: {fileID: 2902797549554766578, guid: f21370a23db86a241b5d12be9a7d4ea1,
     type: 3}
   m_LobbyScene: Lobby
-  m_PlayScene: Main
+  m_PlayScene: Game
   lobbySlots: []
 --- !u!4 &530561206
 Transform:
@@ -319,6 +277,20 @@ MonoBehaviour:
   m_ShowGUI: 1
   m_OffsetX: 0
   m_OffsetY: 0
+--- !u!114 &530561208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 530561203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbee40d2f7b120c43b3f104bf37419e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  networkDiscovery: {fileID: 530561207}
+  lobbyManager: {fileID: 530561205}
 --- !u!1 &741268895
 GameObject:
   m_ObjectHideFlags: 0

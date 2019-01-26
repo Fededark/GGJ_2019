@@ -1,18 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
 public class InitLobby : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public NetworkDiscovery networkDiscovery;
+    public NetworkLobbyManager lobbyManager;
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        if (networkDiscovery != null)
+        {
+            networkDiscovery.Initialize();
+            networkDiscovery.StartAsServer();
+            lobbyManager.StartHost();
+        }
     }
 }
