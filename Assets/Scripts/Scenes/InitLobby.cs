@@ -10,7 +10,7 @@ public class InitLobby : MonoBehaviour
 
     private void Start()
     {
-        if (networkDiscovery != null)
+        if (networkDiscovery && lobbyManager)
         {
             networkDiscovery.Initialize();
             networkDiscovery.StartAsServer();
