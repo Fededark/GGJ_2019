@@ -11,7 +11,8 @@ public class BoolEventListener : MonoBehaviour
 
     private void Awake()
     {
-        boolEvent.OnRaise += listener.Invoke;
+        if (boolEvent != null)
+            boolEvent.OnRaise += listener.Invoke;
     }
 }
 

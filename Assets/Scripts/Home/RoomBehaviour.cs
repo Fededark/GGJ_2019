@@ -8,11 +8,18 @@ public class RoomBehaviour : MonoBehaviour
 
     public GameObject sprite;
     public GameObject darkness;
+    public HomeInfo info;
 
     private void Awake()
     {
-        room.roomChange.OnRaise += sprite.SetActive;
+        room.roomChange.OnRaise += RoomChange_OnRaise;
         room.lightChange.OnRaise += darkness.SetActive;
+    }
+
+    private void RoomChange_OnRaise(bool visible)
+    {
+        if (info.playerMode)
+            sprite.SetActive(visible);
     }
 
     public void ApplyRotation()

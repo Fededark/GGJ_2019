@@ -7,6 +7,7 @@ public class Carpenter : MonoBehaviour
 
     void Start()
     {
+        home.info.playerMode = playerPrefab != null;
         home.Build(transform);
         if (playerPrefab != null)
         {

@@ -12,9 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9687005129a47174b8ca39727eb92f5d, type: 3}
   m_Name: Room1
   m_EditorClassIdentifier: 
+  id: 2
   hall: 0
   roomChange: {fileID: 0}
   lightChange: {fileID: 0}
+  x: 3
+  y: 2
   prefab: {fileID: 1240099461048322316, guid: ee2f09c0ba43f5c4c9c57fe1937e47e7, type: 3}
   row1:
   - {fileID: 0}
@@ -28,3 +31,4 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  rotation: 0

@@ -12,6 +12,8 @@ public class HomeInfo : ScriptableObject
     public BoolEvent globalLightChange;
     public Vector3 SpawnPoint { get; set; }
 
+    public bool playerMode;
+
     public Dictionary<int, Room> roomDict = new Dictionary<int, Room>();
     public Dictionary<int, Cell> cellDict = new Dictionary<int, Cell>();
 
