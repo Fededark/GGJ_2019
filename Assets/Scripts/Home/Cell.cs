@@ -12,4 +12,10 @@ public class Cell : ScriptableObject
 
     public WallType[] walls = new WallType[4];
     public Room room;
+
+
+    public WallType GetWallType(int side)
+    {
+        return walls[(side + room.rotation) % 4];
+    }
 }

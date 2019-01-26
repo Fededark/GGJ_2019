@@ -86,10 +86,97 @@ public class Home
 
     }
 
+    public bool CanBePlaced(Room r, int x, int y)
+    {
+
+        int doorCount = 0;
+
+        for(int i=-1; i<2; i++)
+        {
+            for(int j=-1; j<2; j++)
+            {
+                if (r.HasCell(i, j))
+                {
+                    if (x + i < 0 || x + i >= cells.GetLength(0))
+                        return false;
+                    if (y + j < 0 || y + j >= cells.GetLength(1))
+                        return false;
+
+                    if (r.Overlap(i, j, cells[x + i, y + j]))
+                        return false;
+                    else
+                    {
+
+                        //UP case
+                        if (r.Overlap(i, j, GetCell(x + i, y + j + 1)))
+                        {
+                            WallType w = r.GetWallType(i, j, Cell.UP);
+
+                            if (w != cells[x + i, y + j + 1].GetWallType(Cell.DOWN))
+                                return false;
+
+                            if (w == WallType.Door)
+                                doorCount++;
+                        }
+                        //RIGHT case
+                        if (r.Overlap(i, j, GetCell(x + i + 1, y + j)))
+                        {
+                            WallType w = r.GetWallType(i, j, Cell.RIGHT);
+
+                            if (w != cells[x + i + 1, y + j].GetWallType(Cell.LEFT))
+                                return false;
+
+                            if (w == WallType.Door)
+                                doorCount++;
+                        }
+
+                        //DOWN case
+                        if (r.Overlap(i, j, GetCell(x + i, y + j - 1)))
+                        {
+                            WallType w = r.GetWallType(i, j, Cell.DOWN);
+
+                            if (w != cells[x + i, y + j - 1].GetWallType(Cell.UP))
+                                return false;
+
+                            if (w == WallType.Door)
+                                doorCount++;
+                        }
+
+
+                        //LEFT case
+                        if (r.Overlap(i, j, GetCell(x + i - 1, y + j)))
+                        {
+                            WallType w = r.GetWallType(i, j, Cell.LEFT);
+
+                            if (w != cells[x + i - 1, y + j].GetWallType(Cell.RIGHT))
+                                return false;
+
+                            if (w == WallType.Door)
+                                doorCount++;
+                        }
+
+
+
+                    }
+                }
+            }
+        }
+
+        return doorCount > 0;
+    }
+
 
     private bool CellsExist(int x, int y)
     {
         return cells[x, y] != null;
+    }
+
+    private Cell GetCell(int x, int y)
+    {
+        if (x < 0 || x >= cells.GetLength(0) || y < 0 || y >= cells.GetLength(1))
+            return null;
+        else
+            return cells[x, y];
     }
 
 }

@@ -25,7 +25,7 @@ public class Room : ScriptableObject
     public Cell[] row3 = new Cell[3];
 
     public Cell[,] shape;
-    private int rotation = 0;
+    public int rotation = 0;
 
     private void OnEnable()
     {
@@ -85,15 +85,42 @@ public class Room : ScriptableObject
         rotation = (rotation + (clockwise ? 1 : 4)) % 4;
     }
 
+    /// <summary>
+    /// Finds if Room has a cell in position (x, y) where x and y are 0 in the center of the room
+    /// </summary>
+    /// <param name="x"></param>
+    /// <param name="y"></param>
+    /// <returns></returns>
     public bool HasCell(int x, int y)
     {
-        return shape[x, y] != null;
+        return shape[x+1, y+1] != null;
     }
 
+    /// <summary>
+    /// Returns wall type. X and Y are 0 on the center of the room and can range from -1 to +1
+    /// </summary>
+    /// <param name="x"></param>
+    /// <param name="y"></param>
+    /// <param name="side"></param>
+    /// <returns></returns>
     public WallType GetWallType(int x, int y, int side)
     {
-        Cell cell = shape[x, y];
+        Cell cell = shape[x+1, y+1];
         if (cell == null) return WallType.Empty;
         return cell.walls[(side + rotation) % 4];
+    }
+
+
+    public bool Overlap(int x, int y, Cell c)
+    {
+        if (c == null)
+            return false;
+        else
+        {
+            if (c.room.Equals(shape[x + 1, y + 1].room))
+                return false;
+            
+        }
+        return true;
     }
 }
