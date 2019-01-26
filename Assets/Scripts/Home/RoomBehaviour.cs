@@ -26,5 +26,11 @@ public class RoomBehaviour : MonoBehaviour
     {
         transform.localRotation = Quaternion.Euler(0f, 0f, -90f * room.rotation);
     }
-    
+
+    private void OnMouseUpAsButton()
+    {
+        if (Home.Instance.info.playerMode) return;
+        Debug.Log("click", gameObject);
+    }
+
 }

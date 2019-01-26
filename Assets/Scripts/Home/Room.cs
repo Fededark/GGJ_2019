@@ -8,7 +8,11 @@ public class Room : ScriptableObject
     public BoolEvent roomChange;
     public BoolEvent lightChange;
 
-    public int x, y;
+    [SerializeField]
+    private int x, y;
+
+    public int X { get; set; }
+    public int Y { get; set; }
 
     private bool light = true;
 
@@ -28,7 +32,7 @@ public class Room : ScriptableObject
     public Cell[] row3 = new Cell[3];
 
     public Cell[,] shape;
-    public int rotation = 0;
+    public int rotation { get; set; }
 
     public void CopyFrom(Room other)
     {
@@ -44,12 +48,15 @@ public class Room : ScriptableObject
 
     public void SetCoord(int x, int y)
     {
-        this.x = x;
-        this.y = y;
+        this.X = x;
+        this.Y = y;
     }
 
     private void OnEnable()
     {
+        rotation = 0;
+        X = x;
+        Y = y;
         shape = new Cell[3,3];
         for (int c=0; c<3; c++)
         {
@@ -103,7 +110,7 @@ public class Room : ScriptableObject
             }
         }
 
-        rotation = (rotation + (clockwise ? 1 : 4)) % 4;
+        rotation = (rotation + (clockwise ? 1 : 3)) % 4;
     }
 
     /// <summary>

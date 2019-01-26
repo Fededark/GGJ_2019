@@ -31,12 +31,12 @@ public class HomeBuilder : ScriptableObject
                         cell.id = cellIdx;
                         cellIdx++;
                         info.cellDict.Add(cell.id, cell);
-                        home.cells[c + room.x - 1, r + room.y - 1] = cell;
+                        home.cells[c + room.X - 1, r + room.Y - 1] = cell;
                     }
                 }
             }
             var go = room.InstantiateGO(parent);
-            go.transform.position = new Vector3(room.x, room.y, 0f);
+            go.transform.position = new Vector3(room.X, room.Y, 0f);
             room.SetVisible(room.hall);
             if (room.hall)
             {

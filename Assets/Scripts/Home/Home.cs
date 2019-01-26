@@ -47,9 +47,9 @@ public class Home
         {
             for (int y = -1; y < 2; y++)
             {
-                var c = GetCell(src.room.x + x, src.room.y + y);
-                if (c != null && c.room == src)
-                    cells[src.room.x + x, src.room.y + y] = null;
+                var c = GetCell(src.room.X + x, src.room.Y + y);
+                if (c != null && c.room == src.room)
+                    cells[src.room.X + x, src.room.Y + y] = null;
             }
         }
         src.room.CopyFrom(dest);
@@ -58,7 +58,7 @@ public class Home
             for (int y = -1; y < 2; y++)
             {
                 if (src.room.HasCell(x,y))
-                    cells[src.room.x + x, src.room.y + y] = src.room.GetCell(x, y);
+                    cells[destPos.x + x, destPos.y + y] = src.room.GetCell(x, y);
             }
         }
         src.transform.position = new Vector3(destPos.x, destPos.y, 0f);
