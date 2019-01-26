@@ -55,6 +55,7 @@ public class HomeBuilder : ScriptableObject
 
         home.info = info;
         home.Init();
+        home.BuildConnections(rooms);
         Home.Instance = home;
         return home;
     }

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 [System.Serializable]
 public class Home
@@ -8,8 +9,54 @@ public class Home
     public Cell[,] cells;
     public HomeInfo info;
 
+    private Room[] rooms;
+
     public void Init()
     {
+    }
+
+    public void BuildConnections(Room[] rooms)
+    {
+        this.rooms = rooms;
+        for (int x = 0; x < cells.GetLength(0); x++)
+        {
+            for (int y = 0; y < cells.GetLength(1); y++)
+            {
+                UpdateCellConnections(x, y);
+            }
+        }
+    }
+
+    private void UpdateCellConnections(int x, int y)
+    {
+        Cell c = GetCell(x, y);
+        if (c == null) return;
+        for (int d = 0; d < 4; d++)
+        {
+            if (c.GetWallType(d) != WallType.Door) continue;
+            Cell near = null;
+            switch (d)
+            {
+                case Cell.UP:
+                    near = GetCell(x, y + 1);
+                    break;
+                case Cell.RIGHT:
+                    near = GetCell(x + 1, y);
+                    break;
+                case Cell.DOWN:
+                    near = GetCell(x, y - 1);
+                    break;
+                case Cell.LEFT:
+                    near = GetCell(x - 1, y);
+                    break;
+            }
+            c.checkDoorState(d, near == null);
+            if (near != null && near.room != c.room)
+            {
+                c.room.connections.Add(near.room);
+                near.room.connections.Add(c.room);
+            }
+        }
     }
 
     public Room RoomAt(Vector2Int coord)
@@ -43,27 +90,42 @@ public class Home
 
     public void MoveRoom(RoomBehaviour src, Room dest, Vector2Int destPos)
     {
+        Room room = src.room;
         for (int x = -1; x < 2; x++)
         {
             for (int y = -1; y < 2; y++)
             {
-                var c = GetCell(src.room.X + x, src.room.Y + y);
-                if (c != null && c.room == src.room)
-                    cells[src.room.X + x, src.room.Y + y] = null;
+                var c = GetCell(room.X + x, room.Y + y);
+                if (c != null && c.room == room)
+                    cells[room.X + x, room.Y + y] = null;
             }
         }
-        src.room.CopyFrom(dest);
+        room.CopyFrom(dest);
         for (int x = -1; x < 2; x++)
         {
             for (int y = -1; y < 2; y++)
             {
-                if (src.room.HasCell(x,y))
-                    cells[destPos.x + x, destPos.y + y] = src.room.GetCell(x, y);
+                if (room.HasCell(x, y))
+                    cells[destPos.x + x, destPos.y + y] = room.GetCell(x, y);
             }
         }
         src.transform.position = new Vector3(destPos.x, destPos.y, 0f);
-        src.room.SetCoord(destPos.x, destPos.y);
+        room.SetCoord(destPos.x, destPos.y);
         src.ApplyRotation();
+
+        foreach (var n in room.connections)
+        {
+            n.connections.Remove(room);
+        }
+        room.connections.Clear();
+        for (int x = -1; x < 2; x++)
+        {
+            for (int y = -1; y < 2; y++)
+            {
+                if (room.HasCell(x, y))
+                    UpdateCellConnections(destPos.x + x, destPos.y + y);
+            }
+        }
     }
 
     public void TryToMove(Vector3 v)
@@ -133,6 +195,36 @@ public class Home
             return new Vector2Int(gridX + offset, gridY);
         }
 
+    }
+
+    public bool CanBeRemoved(Room r)
+    {
+        foreach (var n in r.connections)
+            if (n.connections.Count == 1)
+                return false;
+
+        HashSet<Room> visited = new HashSet<Room>();
+        visited.Add(r);
+
+        Queue<Room> toVisit = new Queue<Room>();
+        foreach (var n in r.connections)
+        {
+            visited.Add(n);
+            toVisit.Enqueue(n);
+            break;
+        }
+        
+        while (toVisit.Count > 0 && visited.Count < rooms.Length)
+        {
+            Room v = toVisit.Dequeue();
+            foreach (var n in v.connections)
+            {
+                if (!visited.Contains(n))
+                    toVisit.Enqueue(n);
+            }
+            visited.UnionWith(v.connections);
+        }
+        return visited.Count == rooms.Length;
     }
 
     public bool CanBePlaced(Room r, int x, int y)

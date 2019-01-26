@@ -23,7 +23,9 @@ public class Cell : ScriptableObject
 
     public void checkDoorState(int direction, bool locked)
     {
-        doorsState[(direction + room.rotation) % 4].Raise(locked);
+        var e = doorsState[(direction + room.rotation) % 4];
+        if (e != null)
+            e.Raise(locked);
     }
 
 

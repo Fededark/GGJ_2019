@@ -31,11 +31,8 @@ public class RoomBehaviour : MonoBehaviour
 
     private void OnMouseUpAsButton()
     {
-        if (Home.Instance.info.playerMode) return;
-        if (RoomMoveManager.Instance.placeholder != null) return;
-        RoomBehaviour ph = Instantiate(this);
-        RoomMoveManager.Instance.placeholder = ph;
-        ph.GetComponent<TakUtility.MouseFollow>().enabled = true;
+        //if (Home.Instance.info.playerMode) return;
+        RoomMoveManager.Instance.OnRoomClick(this);
     }
 
 }

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 [CreateAssetMenu(menuName = "GGJ/Home elements/Room")]
 public class Room : ScriptableObject
@@ -15,6 +16,8 @@ public class Room : ScriptableObject
     public int Y { get; set; }
 
     private bool light = true;
+
+    public HashSet<Room> connections = new HashSet<Room>();
 
     [SerializeField]
     private GameObject prefab;
@@ -60,9 +63,9 @@ public class Room : ScriptableObject
         shape = new Cell[3,3];
         for (int c=0; c<3; c++)
         {
-            shape[c, 0] = row1[c]; 
+            shape[c, 2] = row1[c]; 
             shape[c, 1] = row2[c]; 
-            shape[c, 2] = row3[c];
+            shape[c, 0] = row3[c];
             SetRoom(row1[c]);
             SetRoom(row2[c]);
             SetRoom(row3[c]);
