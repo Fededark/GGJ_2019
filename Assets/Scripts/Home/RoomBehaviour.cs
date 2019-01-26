@@ -8,18 +8,20 @@ public class RoomBehaviour : MonoBehaviour
 
     public GameObject sprite;
     public GameObject darkness;
+    public GameObject hidden;
     public HomeInfo info;
+
+    private bool isDark, isHidden;
 
     private void Awake()
     {
-        room.roomChange.OnRaise += RoomChange_OnRaise;
+        room.roomChange.OnRaise += RoomChange_OnRaise; ;
         room.lightChange.OnRaise += darkness.SetActive;
     }
 
-    private void RoomChange_OnRaise(bool visible)
+    private void RoomChange_OnRaise(bool obj)
     {
-        if (info.playerMode)
-            sprite.SetActive(visible);
+        hidden.SetActive(!obj);
     }
 
     public void ApplyRotation()
@@ -30,7 +32,10 @@ public class RoomBehaviour : MonoBehaviour
     private void OnMouseUpAsButton()
     {
         if (Home.Instance.info.playerMode) return;
-        Debug.Log("click", gameObject);
+        if (RoomMoveManager.Instance.placeholder != null) return;
+        RoomBehaviour ph = Instantiate(this);
+        RoomMoveManager.Instance.placeholder = ph;
+        ph.GetComponent<TakUtility.MouseFollow>().enabled = true;
     }
 
 }

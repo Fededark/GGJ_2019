@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class TestMove : MonoBehaviour
 {
+    private void Awake()
+    {
+        //Display.displays[1].Activate();
+    }
     public void Move()
     {
         var h = Home.Instance;

@@ -53,3 +53,6 @@ TagManager:
   - name: Light
     uniqueID: 3014000445
     locked: 0
+  - name: HiddenRoom
+    uniqueID: 1060187329
+    locked: 0
