@@ -7,6 +7,8 @@ public class PlayerMovement : MonoBehaviour
 {
     public float speed;
     public float darkSpeed;
+    private Animator animator;
+
     public bool IsDark { get; set; }
 
     public bool canMove = true;
@@ -16,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     void FixedUpdate()
@@ -24,6 +27,31 @@ public class PlayerMovement : MonoBehaviour
         {
             float moveHorizontal = Input.GetAxis("Horizontal");
             float moveVertical = Input.GetAxis("Vertical");
+
+            if (Mathf.Approximately(moveHorizontal + moveVertical, 0f))
+            {
+                animator.SetBool("moving", false);
+            }
+            else
+            {
+                animator.SetBool("moving", true);
+                if (Mathf.Abs(moveHorizontal) > Mathf.Abs(moveVertical))
+                {
+                    animator.SetInteger("Direction", 1);
+                    if ((moveHorizontal < 0f && transform.localScale.x > 0f) || (moveHorizontal > 0f && transform.localScale.x < 0f))
+                        transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+                }
+                else
+                {
+                    if (transform.localScale.x < 0f)
+                        transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+                    if (moveVertical > 0f)
+                        animator.SetInteger("Direction", 2);
+                    else
+                        animator.SetInteger("Direction", 0);
+                }
+
+            }
 
             rb.velocity = (transform.right * moveHorizontal + transform.up * moveVertical) 
                 * (IsDark ? darkSpeed : speed);
