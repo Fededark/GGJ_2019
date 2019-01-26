@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using ChanibaL;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -39,6 +40,13 @@ public class HomeBuilder : ScriptableObject
                 info.SpawnPoint = go.transform.position;
             }
         }
+
+        var shuff = RandomGenerator.global.GetShuffled(new List<RoomPosition>(rooms));
+        for (int i = 0; i < (shuff.Count + 1) / 2; i++)
+        {
+            shuff[i].room.Light = false;
+        }
+
         home.info = info;
         home.Init();
         Home.Instance = home;

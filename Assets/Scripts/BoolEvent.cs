@@ -1,14 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 [CreateAssetMenu(menuName = "GGJ/BoolEvent")]
-public class BoolEvent : ScriptableObject
-{
-    public event Action<bool> OnRaise;
-
-    public void Raise(bool value)
-    {
-        if (OnRaise != null)
-            OnRaise(value);
-    }
-}
+public class BoolEvent : AbstractEvent<bool> { }

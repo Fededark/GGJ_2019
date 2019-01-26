@@ -1,9 +1,13 @@
 ﻿using UnityEngine;
 
 [CreateAssetMenu(menuName = "GGJ/Home elements/Room")]
-public class Room : BoolEvent
+public class Room : ScriptableObject
 {
     public bool hall = false;
+    public BoolEvent roomChange;
+    public BoolEvent lightChange;
+
+    private bool light = true;
 
     [SerializeField]
     private GameObject prefab;
@@ -35,11 +39,25 @@ public class Room : BoolEvent
             SetRoom(row2[c]);
             SetRoom(row3[c]);
         }
+        if (lightChange == null)
+            lightChange = CreateInstance<BoolEvent>();
+        if (roomChange == null)
+            roomChange = CreateInstance<BoolEvent>();
     }
 
     public void SetVisible(bool visible)
     {
-        Raise(visible);
+        roomChange.Raise(visible);
+    }
+
+    public bool Light
+    {
+        get { return light; }
+        set
+        {
+            light = value;
+            lightChange.Raise(!light);
+        }
     }
 
     private void SetRoom(Cell c)
