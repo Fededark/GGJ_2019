@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: lunga
   m_EditorClassIdentifier: 
   hall: 0
-  prefab: {fileID: 6211937020329884121, guid: 1023caddeecaa384a8f15bdcfbde4a46, type: 3}
+  roomChange: {fileID: 0}
+  lightChange: {fileID: 0}
+  prefab: {fileID: 8222620907256731941, guid: fb0466972822b624c840093240826ad9, type: 3}
   row1:
   - {fileID: 0}
   - {fileID: 11400000, guid: 210afaddfad289e419c52aa8280a6a6f, type: 2}

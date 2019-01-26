@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: Room3
   m_EditorClassIdentifier: 
   hall: 0
-  prefab: {fileID: 6211937020329884121, guid: 5b6b6b5378653ee4a9cb75f19ea36b89, type: 3}
+  roomChange: {fileID: 0}
+  lightChange: {fileID: 0}
+  prefab: {fileID: 8249961208337202318, guid: 91cc7cf03d4fe934bbc239e9c2bccfc8, type: 3}
   row1:
   - {fileID: 0}
   - {fileID: 0}

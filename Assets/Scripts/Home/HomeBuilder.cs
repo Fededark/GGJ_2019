@@ -42,10 +42,12 @@ public class HomeBuilder : ScriptableObject
         }
 
         var shuff = RandomGenerator.global.GetShuffled(new List<RoomPosition>(rooms));
-        for (int i = 0; i < (shuff.Count + 1) / 2; i++)
-        {
+        int split = (shuff.Count + 1) / 2;
+        for (int i = 0; i < split; i++)
             shuff[i].room.Light = false;
-        }
+        for (int i = split; i < shuff.Count; i++)
+            shuff[i].room.Light = true;
+        info.hall.Light = true;
 
         home.info = info;
         home.Init();
