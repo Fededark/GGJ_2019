@@ -25,6 +25,8 @@ public class Home
     public Vector2Int GetRoomCenter(Vector2Int coord)
     {
         Cell cell = cells[coord.x, coord.y];
+        if (cell == null)
+            return new Vector2Int(-1, -1);
         Room room = cell.room;
         if (cell == room.GetCell(0, 0))
             return coord;
