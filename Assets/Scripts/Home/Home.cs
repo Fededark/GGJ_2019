@@ -17,6 +17,11 @@ public class Home
         return cells[coord.x, coord.y].room;
     }
 
+    public Vector2Int GetRoomCenter(Vector3 coord)
+    {
+        return GetRoomCenter(new Vector2Int(Mathf.RoundToInt(coord.x), Mathf.RoundToInt(coord.y)));
+    }
+
     public Vector2Int GetRoomCenter(Vector2Int coord)
     {
         Cell cell = cells[coord.x, coord.y];
