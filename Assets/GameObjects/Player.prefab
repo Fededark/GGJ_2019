@@ -298,6 +298,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
+  darkSpeed: 0.5
   canMove: 1
 --- !u!114 &2902797549554766588
 MonoBehaviour:

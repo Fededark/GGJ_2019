@@ -18,12 +18,19 @@ public class PlayerDoorMovement : MonoBehaviour
     {
         movement = GetComponent<PlayerMovement>();
         homeInfo.doorPassEvent.OnDoorPassed += OnDoorPassed;
+        homeInfo.globalLightChange.OnRaise += GlobalLightChange_OnRaise; ;
+    }
+
+    private void GlobalLightChange_OnRaise(bool obj)
+    {
+        movement.IsDark = !actualRoom.Light;
     }
 
     public void AssignTo(Room room)
     {
         actualRoom = room;
         transform.SetParent(room.GO.transform);
+        movement.IsDark = !actualRoom.Light;
     }
 
     private void OnDoorPassed(Vector2Int from, Vector2Int to)

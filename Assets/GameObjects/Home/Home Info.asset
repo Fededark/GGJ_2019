@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doorDistance: {x: 0.35, y: 0.35}
   doorPassEvent: {fileID: 11400000, guid: 8968330d658db42479bad90328374edf, type: 2}
+  hall: {fileID: 11400000, guid: 3bba88deb4b74ac49883a4a9727a5029, type: 2}
+  globalLightChange: {fileID: 11400000, guid: d849fd8ba5cdf1f4ca78bd0483c6cf3c, type: 2}

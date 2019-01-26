@@ -57,6 +57,8 @@ public class Room : ScriptableObject
         {
             light = value;
             lightChange.Raise(!light);
+            if (Home.Instance != null)
+                Home.Instance.info.globalLightChange.Raise(!light);
         }
     }
 

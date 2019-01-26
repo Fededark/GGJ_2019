@@ -6,6 +6,8 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float speed;
+    public float darkSpeed;
+    public bool IsDark { get; set; }
 
     public bool canMove = true;
 
@@ -23,7 +25,8 @@ public class PlayerMovement : MonoBehaviour
             float moveHorizontal = Input.GetAxis("Horizontal");
             float moveVertical = Input.GetAxis("Vertical");
 
-            rb.velocity = (transform.right * moveHorizontal + transform.up * moveVertical) * speed;
+            rb.velocity = (transform.right * moveHorizontal + transform.up * moveVertical) 
+                * (IsDark ? darkSpeed : speed);
         }
         else
         {
