@@ -237,7 +237,6 @@ public class Home
         for(int x = 0; x < xLim; x++)
             for(int y = 0; y < yLim; y++)
                 cells[x, y].UpdateDoorsState(this, x, y);
-        }
     }
 
 
