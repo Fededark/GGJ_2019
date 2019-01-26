@@ -13,7 +13,11 @@ public class RoomBehaviour : MonoBehaviour
     {
         room.roomChange.OnRaise += sprite.SetActive;
         room.lightChange.OnRaise += darkness.SetActive;
+    }
 
+    public void ApplyRotation()
+    {
+        transform.localRotation = Quaternion.Euler(0f, 0f, -90f * room.rotation);
     }
     
 }

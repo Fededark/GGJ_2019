@@ -18,7 +18,7 @@ public class PlayerDoorMovement : MonoBehaviour
     {
         movement = GetComponent<PlayerMovement>();
         homeInfo.doorPassEvent.OnDoorPassed += OnDoorPassed;
-        homeInfo.globalLightChange.OnRaise += GlobalLightChange_OnRaise; ;
+        homeInfo.globalLightChange.OnRaise += GlobalLightChange_OnRaise;
     }
 
     private void GlobalLightChange_OnRaise(bool obj)

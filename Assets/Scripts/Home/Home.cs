@@ -17,6 +17,47 @@ public class Home
         return cells[coord.x, coord.y].room;
     }
 
+    public Vector2Int GetRoomCenter(Vector2Int coord)
+    {
+        Cell cell = cells[coord.x, coord.y];
+        Room room = cell.room;
+        if (cell == room.GetCell(0, 0))
+            return coord;
+        for (int x = -1; x < 2; x++)
+        {
+            for (int y = -1; y < 2; y++)
+            {
+                if (cell == room.GetCell(x, y))
+                    return new Vector2Int(coord.x - x, coord.y - y);
+            }
+        }
+        return coord;
+    }
+
+    public void MoveRoom(RoomBehaviour src, Room dest, Vector2Int srcPos, Vector2Int destPos)
+    {
+        for (int x = -1; x < 2; x++)
+        {
+            for (int y = -1; y < 2; y++)
+            {
+                var c = GetCell(srcPos.x + x, srcPos.y + y);
+                if (c != null && c.room == src)
+                    cells[srcPos.x + x, srcPos.y + y] = null;
+            }
+        }
+        src.room.CopyFrom(dest);
+        for (int x = -1; x < 2; x++)
+        {
+            for (int y = -1; y < 2; y++)
+            {
+                if (src.room.HasCell(x,y))
+                    cells[srcPos.x + x, srcPos.y + y] = src.room.GetCell(x, y);
+            }
+        }
+        src.transform.position = new Vector3(destPos.x, destPos.y, 0f);
+        src.ApplyRotation();
+    }
+
     public void TryToMove(Vector3 v)
     {
         var x = v.x;

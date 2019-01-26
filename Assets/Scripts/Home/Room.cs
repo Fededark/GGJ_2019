@@ -27,6 +27,19 @@ public class Room : ScriptableObject
     public Cell[,] shape;
     public int rotation = 0;
 
+    public void CopyFrom(Room other)
+    {
+        for (int x = 0; x < 3; x++)
+        {
+            for (int y = 0; y < 3; y++)
+            {
+                shape[x, y] = other.shape[x, y];
+            }
+        }
+        rotation = other.rotation;
+
+    }
+
     private void OnEnable()
     {
         shape = new Cell[3,3];
@@ -83,6 +96,17 @@ public class Room : ScriptableObject
         }
 
         rotation = (rotation + (clockwise ? 1 : 4)) % 4;
+    }
+
+    /// <summary>
+    /// Finds if Room has a cell in position (x, y) where x and y are 0 in the center of the room
+    /// </summary>
+    /// <param name="x"></param>
+    /// <param name="y"></param>
+    /// <returns></returns>
+    public Cell GetCell(int x, int y)
+    {
+        return shape[x + 1, y + 1];
     }
 
     /// <summary>
