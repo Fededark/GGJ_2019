@@ -5,6 +5,10 @@ using UnityEngine.Networking;
 
 public class LobbyFinderBehaviour : MonoBehaviour
 {
-    public NetworkManager manager;
+    public LobbyScrollList lobbyScrollList;
 
+    public void AddLobby(Lobby lobby)
+    {
+        lobbyScrollList.AddLobby(lobby);
+    }
 }

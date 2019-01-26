@@ -13,7 +13,7 @@ public class LobbyFinder : NetworkDiscovery
 
         if (behaviour)
         {
-
+            behaviour.AddLobby(new Lobby { address = fromAddress, name = data });
         }
     }
 

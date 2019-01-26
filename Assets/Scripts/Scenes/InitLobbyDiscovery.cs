@@ -9,10 +9,16 @@ public class InitLobbyDiscovery : MonoBehaviour
 
     void Start()
     {
+        // StartCoroutine(lateStart());
         if (lobbyFinder)
         {
             lobbyFinder.Initialize();
             lobbyFinder.StartAsClient();
         }
+    }
+
+    private IEnumerator lateStart()
+    {
+        yield return new WaitForSeconds(2);
     }
 }

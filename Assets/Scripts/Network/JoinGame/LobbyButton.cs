@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 using UnityEngine.UI;
 
 public class LobbyButton : MonoBehaviour
 {
     public Button buttonComponent;
     public Text nameLabel;
+    public NetworkManager networkManager;
 
     private Lobby lobby;
     private LobbyScrollList scrollList;

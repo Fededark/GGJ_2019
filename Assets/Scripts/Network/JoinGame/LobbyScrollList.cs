@@ -16,11 +16,11 @@ public class LobbyScrollList : MonoBehaviour
     public Transform contentPanel;
     public SimpleObjectPool buttonObjectPool;
 
-    public void AddLobby(string address, string lobbyName)
+    public void AddLobby(Lobby newLobby)
     {
-        if(lobbyList.Find(lobby => lobby.address == address) == null)
+        if(lobbyList.Find(lobby => lobby.address == newLobby.address) == null)
         {
-            lobbyList.Add(new Lobby { address = address, name = name });
+            lobbyList.Add(newLobby);
         }
     }
 
