@@ -219,12 +219,26 @@ public class Home
         return cells[x, y] != null;
     }
 
-    private Cell GetCell(int x, int y)
+    public Cell GetCell(int x, int y)
     {
         if (x < 0 || x >= cells.GetLength(0) || y < 0 || y >= cells.GetLength(1))
             return null;
         else
             return cells[x, y];
     }
+
+
+    private void UpdateDoors()
+    {
+        int xLim = cells.GetLength(0);
+        int yLim = cells.GetLength(1);
+
+        for(int x = 0; x < xLim; x++)
+            for(int y = 0; y < yLim; y++)
+                cells[x, y].UpdateDoorsState(this, x, y);
+        }
+    }
+
+
 
 }
