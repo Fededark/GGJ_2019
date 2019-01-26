@@ -5,12 +5,11 @@ using UnityEngine.Networking;
 
 public class InitLobbyDiscovery : MonoBehaviour
 {
-    public NetworkDiscovery lobbyFinder;
-    public LobbyJoiner networkManager;
+    public LobbyFinder lobbyFinder;
 
     void Start()
     {
-        if (lobbyFinder && networkManager)
+        if (lobbyFinder)
         {
             lobbyFinder.Initialize();
             lobbyFinder.StartAsClient();
