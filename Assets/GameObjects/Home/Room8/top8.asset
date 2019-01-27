@@ -10,7 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: db5c54e66494f3a43bb9ba2ca8381134, type: 3}
-  m_Name: top
+  m_Name: top8
   m_EditorClassIdentifier: 
-  walls: 02000000020000000000000002000000
-  room: {fileID: 11400000, guid: 6dc014007b3c8474296908a9f24ae637, type: 2}
+  id: 8
+  walls: 01000000020000000000000002000000
+  room: {fileID: 11400000, guid: 6d7c4dfcaa9bbd04585e9bd1fda6a916, type: 2}
+  doorsState:
+  - {fileID: 0}
+  - {fileID: 11400000, guid: f6a4db1da1c6af041937de17862d8e79, type: 2}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: d01475a38430afa4e80cde528714391b, type: 2}

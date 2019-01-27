@@ -10,25 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9687005129a47174b8ca39727eb92f5d, type: 3}
-  m_Name: lunga
+  m_Name: room8
   m_EditorClassIdentifier: 
-  id: 1
+  id: 4
   hall: 0
   roomChange: {fileID: 0}
   lightChange: {fileID: 0}
-  x: 2
-  y: 1
-  prefab: {fileID: 8222620907256731941, guid: fb0466972822b624c840093240826ad9, type: 3}
+  x: 3
+  y: 7
+  prefab: {fileID: 8222620907256731941, guid: 47b583af3f88ec64ca1721907fdb4d60, type: 3}
   row1:
   - {fileID: 0}
-  - {fileID: 11400000, guid: 210afaddfad289e419c52aa8280a6a6f, type: 2}
+  - {fileID: 11400000, guid: 8c3ed4f0418ca9a47b45d6774914e628, type: 2}
   - {fileID: 0}
   row2:
   - {fileID: 0}
-  - {fileID: 11400000, guid: 0fd9c6912eee3414c9ebca8d8fde68c6, type: 2}
+  - {fileID: 11400000, guid: 2a26d2980b9887942a5078b7d4a9402f, type: 2}
   - {fileID: 0}
   row3:
   - {fileID: 0}
-  - {fileID: 11400000, guid: 8b51d07084f6d0340b40065d8f35f6da, type: 2}
+  - {fileID: 11400000, guid: e5feb67ea67ba8d4293214feb5b44ed6, type: 2}
   - {fileID: 0}
-  rotation: 0

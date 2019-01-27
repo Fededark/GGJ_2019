@@ -13,9 +13,21 @@ MonoBehaviour:
   m_Name: New Home Builder
   m_EditorClassIdentifier: 
   info: {fileID: 11400000, guid: be140c6839345284c98ae519e7464e5b, type: 2}
-  size: {x: 5, y: 5}
+  size: {x: 12, y: 12}
   rooms:
-  - {fileID: 11400000, guid: 6dc014007b3c8474296908a9f24ae637, type: 2}
-  - {fileID: 11400000, guid: 7f539da4162b96446bee526ecce0d293, type: 2}
   - {fileID: 11400000, guid: 3bba88deb4b74ac49883a4a9727a5029, type: 2}
+  - {fileID: 11400000, guid: e8b2bff8fc3ccce468782f3937e7a044, type: 2}
+  - {fileID: 11400000, guid: da22902ddd5044e4bb1a9c2d84771d7e, type: 2}
+  - {fileID: 11400000, guid: 6d7c4dfcaa9bbd04585e9bd1fda6a916, type: 2}
+  - {fileID: 11400000, guid: 6dc014007b3c8474296908a9f24ae637, type: 2}
+  - {fileID: 11400000, guid: 79f7d20332e1af54492fa1f1dadc874c, type: 2}
+  - {fileID: 11400000, guid: 44a357560ba02534a955205c9264fc8d, type: 2}
   - {fileID: 11400000, guid: 38da7706fa1aba14991c50b166183e1c, type: 2}
+  - {fileID: 11400000, guid: 170c7aeb3537f274391368c5ddce977f, type: 2}
+  - {fileID: 11400000, guid: f5f41495e0f9c2e49a823d53c13f7018, type: 2}
+  - {fileID: 11400000, guid: 466d220727fdeab4ca9820204af41fe4, type: 2}
+  - {fileID: 11400000, guid: 2ea132d33929de44d9c2bc84a7f60e4c, type: 2}
+  - {fileID: 11400000, guid: aaf2f443af69fdf4baabfbe31c32921c, type: 2}
+  - {fileID: 11400000, guid: fc5ce882172b27e4dabde358a17bfd3a, type: 2}
+  - {fileID: 11400000, guid: 46c2eb23652b85243951f2eddcc6d560, type: 2}
+  - {fileID: 11400000, guid: 8845f2f135347c24e83b48d0d35094d2, type: 2}

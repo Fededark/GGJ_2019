@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: db5c54e66494f3a43bb9ba2ca8381134, type: 3}
-  m_Name: New Cell
+  m_Name: Left
   m_EditorClassIdentifier: 
-  id: 0
-  walls: 00000000000000000000000000000000
-  room: {fileID: 0}
+  id: 23
+  walls: 02000000000000000200000002000000
+  room: {fileID: 11400000, guid: aaf2f443af69fdf4baabfbe31c32921c, type: 2}
   doorsState:
+  - {fileID: 11400000, guid: 8aa45802ea361e1478715d3aa56d1170, type: 2}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: e89da8fc5af851843a92e24288def877, type: 2}
+  - {fileID: 11400000, guid: ef7e4641565151f429b959aaa975f1ab, type: 2}

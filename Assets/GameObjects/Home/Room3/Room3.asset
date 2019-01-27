@@ -12,20 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9687005129a47174b8ca39727eb92f5d, type: 3}
   m_Name: Room3
   m_EditorClassIdentifier: 
-  id: 0
+  id: 2
   hall: 0
   roomChange: {fileID: 0}
   lightChange: {fileID: 0}
-  x: 0
-  y: 0
-  prefab: {fileID: 0}
+  x: 4
+  y: 8
+  prefab: {fileID: 2879384182898287525, guid: 924c29c3f2021dd4b9e5a47c2c2f614f, type: 3}
   row1:
   - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 79093a3a5b0b61b43a85cb0f6fa7dc5b, type: 2}
   - {fileID: 0}
   row2:
   - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 8532f57790854ba498be62023ecd4720, type: 2}
   - {fileID: 0}
   row3:
   - {fileID: 0}

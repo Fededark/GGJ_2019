@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db5c54e66494f3a43bb9ba2ca8381134, type: 3}
   m_Name: Right
   m_EditorClassIdentifier: 
-  id: 0
-  walls: 00000000000000000000000000000000
-  room: {fileID: 0}
+  id: 13
+  walls: 02000000020000000200000000000000
+  room: {fileID: 11400000, guid: 79f7d20332e1af54492fa1f1dadc874c, type: 2}
   doorsState:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: fe6c3cec6bd9a9641814ab5a7895bee7, type: 2}
+  - {fileID: 11400000, guid: 57570dd21f1867b4d997de41c9b1584b, type: 2}
+  - {fileID: 11400000, guid: 8fb49b2660619e342b9bf3ed8ea5ffff, type: 2}
   - {fileID: 0}

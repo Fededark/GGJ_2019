@@ -10,25 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9687005129a47174b8ca39727eb92f5d, type: 3}
-  m_Name: Room2
+  m_Name: Room16
   m_EditorClassIdentifier: 
-  id: 3
+  id: 11
   hall: 1
   roomChange: {fileID: 0}
   lightChange: {fileID: 0}
-  x: 1
-  y: 2
-  prefab: {fileID: 4081195924560177227, guid: f395d974cffd4cd45977dc39f469c8b1, type: 3}
+  x: 3
+  y: 5
+  prefab: {fileID: 4081195924560177227, guid: 40e324a796a12c941b760506175283e8, type: 3}
   row1:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   row2:
   - {fileID: 0}
-  - {fileID: 11400000, guid: c54744a878d5734428bbdec49623e39f, type: 2}
+  - {fileID: 11400000, guid: bed82e92cad25b34fab760624a2cdca7, type: 2}
   - {fileID: 0}
   row3:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  rotation: 0

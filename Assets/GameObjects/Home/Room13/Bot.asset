@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db5c54e66494f3a43bb9ba2ca8381134, type: 3}
   m_Name: Bot
   m_EditorClassIdentifier: 
-  id: 0
-  walls: 00000000000000000000000000000000
-  room: {fileID: 0}
+  id: 18
+  walls: 00000000010000000200000002000000
+  room: {fileID: 11400000, guid: f5f41495e0f9c2e49a823d53c13f7018, type: 2}
   doorsState:
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 6598f19435f667c44b5b41440def53e8, type: 2}
+  - {fileID: 11400000, guid: 4ba2163f81cff884a841c01621fef7f8, type: 2}

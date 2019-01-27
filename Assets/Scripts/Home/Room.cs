@@ -57,6 +57,11 @@ public class Room : ScriptableObject
 
     private void OnEnable()
     {
+
+        if (Application.isEditor)
+            return;
+
+
         rotation = 0;
         X = x;
         Y = y;

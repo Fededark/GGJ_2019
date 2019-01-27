@@ -12,5 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db5c54e66494f3a43bb9ba2ca8381134, type: 3}
   m_Name: r3 cell
   m_EditorClassIdentifier: 
-  walls: 01000000010000000200000001000000
-  room: {fileID: 11400000, guid: 38da7706fa1aba14991c50b166183e1c, type: 2}
+  id: 25
+  walls: 01000000020000000200000001000000
+  room: {fileID: 11400000, guid: fc5ce882172b27e4dabde358a17bfd3a, type: 2}
+  doorsState:
+  - {fileID: 0}
+  - {fileID: 11400000, guid: e0d48b011c2c6f143ab18067da4c5223, type: 2}
+  - {fileID: 11400000, guid: 96f7cf0b237dadb4e9c22d983ed3547b, type: 2}
+  - {fileID: 0}
