@@ -166,7 +166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boolEvent: {fileID: 0}
-  invert: 0
+  invert: 1
   listener:
     m_PersistentCalls:
       m_Calls:
