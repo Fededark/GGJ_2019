@@ -601,6 +601,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180
       objectReference: {fileID: 0}
+    - target: {fileID: 3648253141920718569, guid: 2d4b0495cf77a0344b1c935ada6c06b6,
+        type: 3}
+      propertyPath: boolEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: e0d48b011c2c6f143ab18067da4c5223,
+        type: 2}
     - target: {fileID: 5305745838536769250, guid: 2d4b0495cf77a0344b1c935ada6c06b6,
         type: 3}
       propertyPath: room
@@ -686,6 +692,12 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3648253141920718569, guid: 2d4b0495cf77a0344b1c935ada6c06b6,
+        type: 3}
+      propertyPath: boolEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 96f7cf0b237dadb4e9c22d983ed3547b,
+        type: 2}
     - target: {fileID: 5305745838536769250, guid: 2d4b0495cf77a0344b1c935ada6c06b6,
         type: 3}
       propertyPath: room

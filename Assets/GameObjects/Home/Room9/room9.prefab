@@ -551,6 +551,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3648253141920718569, guid: 2d4b0495cf77a0344b1c935ada6c06b6,
+        type: 3}
+      propertyPath: boolEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 0a944e6c8c133d042a9fac21cf17ff81,
+        type: 2}
     - target: {fileID: 5305745838536769250, guid: 2d4b0495cf77a0344b1c935ada6c06b6,
         type: 3}
       propertyPath: room
@@ -626,6 +632,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180
       objectReference: {fileID: 0}
+    - target: {fileID: 3648253141920718569, guid: 2d4b0495cf77a0344b1c935ada6c06b6,
+        type: 3}
+      propertyPath: boolEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: cf095a31954d9fd4183f19c96b74baa2,
+        type: 2}
     - target: {fileID: 5305745838536769250, guid: 2d4b0495cf77a0344b1c935ada6c06b6,
         type: 3}
       propertyPath: room
@@ -875,6 +887,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180
       objectReference: {fileID: 0}
+    - target: {fileID: 3648253141920718569, guid: 2d4b0495cf77a0344b1c935ada6c06b6,
+        type: 3}
+      propertyPath: boolEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 33f7572c6c0a2b345aeb4795246aeb9d,
+        type: 2}
     - target: {fileID: 5305745838536769250, guid: 2d4b0495cf77a0344b1c935ada6c06b6,
         type: 3}
       propertyPath: room

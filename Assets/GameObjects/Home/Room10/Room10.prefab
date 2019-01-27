@@ -541,6 +541,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180
       objectReference: {fileID: 0}
+    - target: {fileID: 3648253141920718569, guid: 2d4b0495cf77a0344b1c935ada6c06b6,
+        type: 3}
+      propertyPath: boolEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: cf0a5353d37b3734a915261333104f08,
+        type: 2}
     - target: {fileID: 5305745838536769250, guid: 2d4b0495cf77a0344b1c935ada6c06b6,
         type: 3}
       propertyPath: room
@@ -616,6 +622,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 3648253141920718569, guid: 2d4b0495cf77a0344b1c935ada6c06b6,
+        type: 3}
+      propertyPath: boolEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 5a8e87a6afb91dc44bd032437cd694b7,
+        type: 2}
     - target: {fileID: 5305745838536769250, guid: 2d4b0495cf77a0344b1c935ada6c06b6,
         type: 3}
       propertyPath: room
@@ -864,6 +876,12 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1.0000005
       objectReference: {fileID: 0}
+    - target: {fileID: 3648253141920718569, guid: 2d4b0495cf77a0344b1c935ada6c06b6,
+        type: 3}
+      propertyPath: boolEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: aa2749798272fe04ca2b9ffa66afee7e,
+        type: 2}
     - target: {fileID: 5305745838536769250, guid: 2d4b0495cf77a0344b1c935ada6c06b6,
         type: 3}
       propertyPath: room
@@ -939,6 +957,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3648253141920718569, guid: 2d4b0495cf77a0344b1c935ada6c06b6,
+        type: 3}
+      propertyPath: boolEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: a864340db90f49442b272d4e436b9726,
+        type: 2}
     - target: {fileID: 5305745838536769250, guid: 2d4b0495cf77a0344b1c935ada6c06b6,
         type: 3}
       propertyPath: room

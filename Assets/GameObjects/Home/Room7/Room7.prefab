@@ -551,6 +551,12 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1.0000005
       objectReference: {fileID: 0}
+    - target: {fileID: 3648253141920718569, guid: 067d89b97b7a76d489479fc9166b8599,
+        type: 3}
+      propertyPath: boolEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: e89da8fc5af851843a92e24288def877,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 067d89b97b7a76d489479fc9166b8599, type: 3}
 --- !u!1001 &672018358217186853
@@ -630,6 +636,12 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3648253141920718569, guid: 067d89b97b7a76d489479fc9166b8599,
+        type: 3}
+      propertyPath: boolEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: ef7e4641565151f429b959aaa975f1ab,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 067d89b97b7a76d489479fc9166b8599, type: 3}
 --- !u!1001 &1600081547707703697
@@ -709,6 +721,12 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3648253141920718569, guid: 067d89b97b7a76d489479fc9166b8599,
+        type: 3}
+      propertyPath: boolEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: de4b15381bee0eb4c8e58bde24f74a9d,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 067d89b97b7a76d489479fc9166b8599, type: 3}
 --- !u!1001 &3938786126380824161
@@ -788,6 +806,12 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3648253141920718569, guid: 067d89b97b7a76d489479fc9166b8599,
+        type: 3}
+      propertyPath: boolEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 8aa45802ea361e1478715d3aa56d1170,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 067d89b97b7a76d489479fc9166b8599, type: 3}
 --- !u!1001 &7406657884205150058
