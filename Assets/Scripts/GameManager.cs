@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -31,8 +32,8 @@ public class GameManager : MonoBehaviour
     {
         if (taken >= objects.Length)
         {
-            //TODO win
-            Debug.Log("WINNER!!!!!!!!!!");
+            //win
+            SceneManager.LoadScene("win");
         }
     }
 
@@ -45,8 +46,8 @@ public class GameManager : MonoBehaviour
     {
         if (totalTime.PassTime())
         {
-            //TODO game over
-            Debug.Log("GAME OVER!!!!!!!!!!!!!!!");
+            //game over
+            SceneManager.LoadScene("lose");
         }
 
         if (moveTime.PassTime())
