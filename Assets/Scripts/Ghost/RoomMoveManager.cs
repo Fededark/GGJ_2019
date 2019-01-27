@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using ChanibaL;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -46,5 +47,28 @@ public class RoomMoveManager
         RoomBehaviour ph = GameObject.Instantiate(rb);
         placeholder = ph;
         ph.GetComponent<TakUtility.MouseFollow>().enabled = true;
+    }
+
+    public bool RandomMove()
+    {
+        var h = Home.Instance;
+        var move = new List<Room>();
+        foreach (var r in h.rooms)
+        {
+            if (h.CanBeRemoved(r))
+                move.Add(r);
+        }
+        move = move.GetShuffled();
+        foreach (var r in move)
+        {
+            var pos = h.WhereCanBePlaced(r);
+            if (pos.Count > 0)
+            {
+                var p = pos[Random.Range(0, pos.Count)];
+                h.MoveRoom(r.GO.GetComponent<RoomBehaviour>(), r, p);
+                return true;
+            }
+        }
+        return false;
     }
 }

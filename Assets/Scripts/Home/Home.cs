@@ -9,7 +9,7 @@ public class Home
     public Cell[,] cells;
     public HomeInfo info;
 
-    private Room[] rooms;
+    public Room[] rooms;
 
     public void Init()
     {
@@ -35,24 +35,30 @@ public class Home
         {
             if (c.GetWallType(d) != WallType.Door) continue;
             Cell near = null;
+            int nd = 0;
             switch (d)
             {
                 case Cell.UP:
                     near = GetCell(x, y + 1);
+                    nd = Cell.DOWN;
                     break;
                 case Cell.RIGHT:
                     near = GetCell(x + 1, y);
+                    nd = Cell.LEFT;
                     break;
                 case Cell.DOWN:
                     near = GetCell(x, y - 1);
+                    nd = Cell.UP;
                     break;
                 case Cell.LEFT:
                     near = GetCell(x - 1, y);
+                    nd = Cell.RIGHT;
                     break;
             }
             c.checkDoorState(d, near == null);
             if (near != null && near.room != c.room)
             {
+                near.checkDoorState(nd, false);
                 c.room.connections.Add(near.room);
                 near.room.connections.Add(c.room);
             }
@@ -113,17 +119,24 @@ public class Home
         room.SetCoord(destPos.x, destPos.y);
         src.ApplyRotation();
 
-        foreach (var n in room.connections)
+        var conn = new List<Room>(room.connections);
+        foreach (var n in conn)
         {
             n.connections.Remove(room);
+            UpdateCellConnections(n);
         }
         room.connections.Clear();
+        UpdateCellConnections(room);
+    }
+
+    private void UpdateCellConnections(Room room)
+    {
         for (int x = -1; x < 2; x++)
         {
             for (int y = -1; y < 2; y++)
             {
                 if (room.HasCell(x, y))
-                    UpdateCellConnections(destPos.x + x, destPos.y + y);
+                    UpdateCellConnections(room.X + x, room.Y + y);
             }
         }
     }
@@ -227,6 +240,22 @@ public class Home
         return visited.Count == rooms.Length;
     }
 
+    public List<Vector2Int> WhereCanBePlaced(Room r)
+    {
+        var output = new List<Vector2Int>();
+        for (int x = 0; x < cells.GetLength(0); x++)
+        {
+            for (int y = 0; y < cells.GetLength(1); y++)
+            {
+                if (cells[x,y] == null && CanBePlaced(r, x,y))
+                {
+                    output.Add(new Vector2Int(x, y));
+                }
+            }
+        }
+        return output;
+    }
+
     public bool CanBePlaced(Room r, int x, int y)
     {
 
@@ -326,10 +355,14 @@ public class Home
         int xLim = cells.GetLength(0);
         int yLim = cells.GetLength(1);
 
-        for(int x = 0; x < xLim; x++)
-            for(int y = 0; y < yLim; y++)
-                cells[x, y].UpdateDoorsState(this, x, y);    
-        
+        for (int x = 0; x < xLim; x++)
+        {
+            for (int y = 0; y < yLim; y++)
+            {
+                if (cells[x, y])
+                    cells[x, y].UpdateDoorsState(this, x, y);
+            }
+        }
     }
 
 
