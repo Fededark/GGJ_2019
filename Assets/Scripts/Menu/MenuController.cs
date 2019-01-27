@@ -8,6 +8,7 @@ public class MenuController : MonoBehaviour
 {
     public GameObject mainMenu;
     public GameObject credits;
+    public GameObject brief;
 
     public Button startGame;
     public Button showCredits;
@@ -27,7 +28,9 @@ public class MenuController : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("Game");
+        //SceneManager.LoadScene("game");
+        mainMenu.SetActive(false);
+        brief.SetActive(true);
     }
 
     public void ShowCredits()
