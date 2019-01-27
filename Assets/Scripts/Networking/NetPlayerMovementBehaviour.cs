@@ -44,11 +44,23 @@ public class NetPlayerMovementBehaviour : NetworkBehaviour
             moveHorizontal = moveVertical = 0f;
         }
 
-        CmdMove(moveHorizontal, moveVertical);
+        RpcMove(moveHorizontal, moveVertical);
     }
 
     [Command]
     public void CmdMove(float moveHorizontal, float moveVertical)
+    {
+        SetMovement(moveHorizontal, moveVertical);
+        RpcMove(moveHorizontal, moveVertical);
+    }
+
+    [ClientRpc]
+    public void RpcMove(float moveHorizontal, float moveVertical)
+    {
+        SetMovement(moveHorizontal, moveVertical);
+    }
+
+    public void SetMovement(float moveHorizontal, float moveVertical)
     {
         this.moveHorizontal = moveHorizontal;
         this.moveVertical = moveVertical;
