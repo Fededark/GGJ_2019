@@ -29,22 +29,14 @@ public class NetPlayerMovementBehaviour : NetworkBehaviour
 
     void Update()
     {
-        if (!isLocalPlayer)
-        {
-            return;
-        }
+        if (!isLocalPlayer) return;
 
         if (canMove)
-        {
-            moveHorizontal = Input.GetAxis("Horizontal");
-            moveVertical = Input.GetAxis("Vertical");
-        }
+            SetMovement(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         else
-        {
-            moveHorizontal = moveVertical = 0f;
-        }
+            SetMovement(0, 0);
 
-        RpcMove(moveHorizontal, moveVertical);
+        CmdMove(moveHorizontal, moveVertical);
     }
 
     [Command]
@@ -57,6 +49,7 @@ public class NetPlayerMovementBehaviour : NetworkBehaviour
     [ClientRpc]
     public void RpcMove(float moveHorizontal, float moveVertical)
     {
+        if (isLocalPlayer) return;        
         SetMovement(moveHorizontal, moveVertical);
     }
 
