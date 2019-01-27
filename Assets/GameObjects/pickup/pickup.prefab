@@ -4871,7 +4871,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boolEvent: {fileID: 11400000, guid: d849fd8ba5cdf1f4ca78bd0483c6cf3c, type: 2}
-  invert: 1
+  invert: 0
   listener:
     m_PersistentCalls:
       m_Calls:

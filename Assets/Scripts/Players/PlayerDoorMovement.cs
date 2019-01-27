@@ -30,7 +30,7 @@ public class PlayerDoorMovement : MonoBehaviour
     {
         actualRoom = room;
         transform.SetParent(room.GO.transform);
-        movement.IsDark = !actualRoom.Light;
+        homeInfo.globalLightChange.Raise(!actualRoom.Light);
     }
 
     private void OnDoorPassed(Vector2Int from, Vector2Int to)

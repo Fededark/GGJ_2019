@@ -17,4 +17,5 @@ public class HomeInfo : ScriptableObject
     public Dictionary<int, Room> roomDict = new Dictionary<int, Room>();
     public Dictionary<int, Cell> cellDict = new Dictionary<int, Cell>();
 
+    public GameObject roomPositionIndicatorPrefab;
 }
