@@ -13,6 +13,8 @@ public class BoolEventListener : MonoBehaviour
     {
         if (boolEvent != null)
             boolEvent.OnRaise += listener.Invoke;
+        else
+            Debug.LogWarning("missing event", gameObject);
     }
 }
 
