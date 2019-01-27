@@ -10,6 +10,11 @@ public class SwitchOn : MonoBehaviour, IAction
         actionEvent.Raise(this);
     }
 
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        actionEvent.Raise(this);
+    }
+
     private void OnTriggerExit2D(Collider2D other)
     {
         actionEvent.Raise(null);
