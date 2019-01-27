@@ -129,7 +129,7 @@ PolygonCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1, y: 3}
-    newSize: {x: 1, y: 3}
+    newSize: {x: 10.24, y: 30.719997}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -551,6 +551,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3648253141920718569, guid: 2d4b0495cf77a0344b1c935ada6c06b6,
+        type: 3}
+      propertyPath: boolEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 0a944e6c8c133d042a9fac21cf17ff81,
+        type: 2}
     - target: {fileID: 5305745838536769250, guid: 2d4b0495cf77a0344b1c935ada6c06b6,
         type: 3}
       propertyPath: room
@@ -626,6 +632,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180
       objectReference: {fileID: 0}
+    - target: {fileID: 3648253141920718569, guid: 2d4b0495cf77a0344b1c935ada6c06b6,
+        type: 3}
+      propertyPath: boolEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: cf095a31954d9fd4183f19c96b74baa2,
+        type: 2}
     - target: {fileID: 5305745838536769250, guid: 2d4b0495cf77a0344b1c935ada6c06b6,
         type: 3}
       propertyPath: room
@@ -644,8 +656,34 @@ PrefabInstance:
     - target: {fileID: 6211937020329884121, guid: a8a7aa1067c6bbd4c89994c76574715e,
         type: 3}
       propertyPath: m_Name
-      value: lunga
+      value: room9
       objectReference: {fileID: 0}
+    - target: {fileID: 1813022613504167409, guid: a8a7aa1067c6bbd4c89994c76574715e,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1813022613504167409, guid: a8a7aa1067c6bbd4c89994c76574715e,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1813022613504167409, guid: a8a7aa1067c6bbd4c89994c76574715e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1813022613504167409, guid: a8a7aa1067c6bbd4c89994c76574715e,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6140142550269517775, guid: a8a7aa1067c6bbd4c89994c76574715e,
+        type: 3}
+      propertyPath: room
+      value: 
+      objectReference: {fileID: 11400000, guid: 6dc014007b3c8474296908a9f24ae637,
+        type: 2}
     - target: {fileID: 6211937020329884122, guid: a8a7aa1067c6bbd4c89994c76574715e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -701,12 +739,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6140142550269517775, guid: a8a7aa1067c6bbd4c89994c76574715e,
+    - target: {fileID: 163501429909216128, guid: a8a7aa1067c6bbd4c89994c76574715e,
         type: 3}
-      propertyPath: room
-      value: 
-      objectReference: {fileID: 11400000, guid: 6dc014007b3c8474296908a9f24ae637,
-        type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5786439927488208654, guid: a8a7aa1067c6bbd4c89994c76574715e,
         type: 3}
       propertyPath: m_IsActive
@@ -736,19 +773,18 @@ PrefabInstance:
     - target: {fileID: 3995010165735909580, guid: a8a7aa1067c6bbd4c89994c76574715e,
         type: 3}
       propertyPath: m_Size.y
-      value: 3
+      value: 30.719997
       objectReference: {fileID: 0}
     - target: {fileID: 3995010165735909580, guid: a8a7aa1067c6bbd4c89994c76574715e,
         type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4404258082895940711, guid: a8a7aa1067c6bbd4c89994c76574715e,
+    - target: {fileID: 3995010165735909580, guid: a8a7aa1067c6bbd4c89994c76574715e,
         type: 3}
-      propertyPath: boolEvent
-      value: 
-      objectReference: {fileID: 11400000, guid: 6dc014007b3c8474296908a9f24ae637,
-        type: 2}
+      propertyPath: m_Size.x
+      value: 10.24
+      objectReference: {fileID: 0}
     - target: {fileID: 8336566567557511001, guid: a8a7aa1067c6bbd4c89994c76574715e,
         type: 3}
       propertyPath: m_RootOrder
@@ -764,31 +800,12 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 3072
       objectReference: {fileID: 0}
-    - target: {fileID: 163501429909216128, guid: a8a7aa1067c6bbd4c89994c76574715e,
+    - target: {fileID: 4404258082895940711, guid: a8a7aa1067c6bbd4c89994c76574715e,
         type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1813022613504167409, guid: a8a7aa1067c6bbd4c89994c76574715e,
-        type: 3}
-      propertyPath: m_Offset.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1813022613504167409, guid: a8a7aa1067c6bbd4c89994c76574715e,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1813022613504167409, guid: a8a7aa1067c6bbd4c89994c76574715e,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1813022613504167409, guid: a8a7aa1067c6bbd4c89994c76574715e,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
+      propertyPath: boolEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 6dc014007b3c8474296908a9f24ae637,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a8a7aa1067c6bbd4c89994c76574715e, type: 3}
 --- !u!1 &3974361846673193313 stripped
@@ -870,6 +887,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180
       objectReference: {fileID: 0}
+    - target: {fileID: 3648253141920718569, guid: 2d4b0495cf77a0344b1c935ada6c06b6,
+        type: 3}
+      propertyPath: boolEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 33f7572c6c0a2b345aeb4795246aeb9d,
+        type: 2}
     - target: {fileID: 5305745838536769250, guid: 2d4b0495cf77a0344b1c935ada6c06b6,
         type: 3}
       propertyPath: room
