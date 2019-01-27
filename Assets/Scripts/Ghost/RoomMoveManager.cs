@@ -58,6 +58,7 @@ public class RoomMoveManager
             if (h.CanBeRemoved(r))
                 move.Add(r);
         }
+        if (move.Count == 0) return false;
         move = move.GetShuffled();
         foreach (var r in move)
         {

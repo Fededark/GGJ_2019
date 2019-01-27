@@ -43,7 +43,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ed67aa379a92494188a6349da4b0b37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveTime: 1
-  lightTime: 1
-  moveRemaining: 0
-  lightRemaining: 0
+  totalTime:
+    min: 120
+    max: 0
+    current: 0
+  moveTime:
+    min: 4
+    max: 8
+    current: 0
+  lightTime:
+    min: 20
+    max: 40
+    current: 0
+  objects:
+  - {fileID: 11400000, guid: 085c5c5806c92614bab56249823921b0, type: 2}
+  - {fileID: 11400000, guid: 33af5025bd74e0d48a87c9be5c2e159a, type: 2}
+  - {fileID: 11400000, guid: 5d6869274726d5e41a04ff6f9ec15678, type: 2}
+  - {fileID: 11400000, guid: b9fce15a4804d894998176c6afd3cf99, type: 2}
+  taken: 0

@@ -1,42 +1,68 @@
-﻿using System.Collections;
+﻿using ChanibaL;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public float moveTime;
-    public float lightTime;
+    public BoolEvent winEvent;
 
-    [Space]
-    public float moveRemaining;
-    public float lightRemaining;
+    public Timer totalTime;
+    public Timer moveTime;
+    public Timer lightTime;
+
+    public BoolEvent[] objects;
+
+    public int taken = 0;
 
     private void Awake()
     {
-        moveRemaining = moveTime;
-        lightRemaining = lightTime;
+        winEvent.OnRaise += WinEvent_OnRaise;        
+        totalTime.Reset();
+        moveTime.Reset();
+        lightTime.Reset();
+        foreach (var ev in objects)
+        {
+            ev.OnRaise += Ev_OnRaise;
+        }
+    }
+
+    private void WinEvent_OnRaise(bool obj)
+    {
+        if (taken >= objects.Length)
+        {
+            //TODO win
+            Debug.Log("WINNER!!!!!!!!!!");
+        }
+    }
+
+    private void Ev_OnRaise(bool obj)
+    {
+        taken++;
     }
 
     private void Update()
     {
-        moveRemaining -= Time.deltaTime;
-        if (moveRemaining < 0)
+        if (totalTime.PassTime())
+        {
+            //TODO game over
+            Debug.Log("GAME OVER!!!!!!!!!!!!!!!");
+        }
+
+        if (moveTime.PassTime())
             MoveRoom();
 
-        lightRemaining -= Time.deltaTime;
-        if (lightRemaining < 0)
+        if (lightTime.PassTime())
             SwitchOff();
     }
 
     public void MoveRoom()
     {
         RoomMoveManager.Instance.RandomMove();
-        moveRemaining = moveTime;
     }
 
     public void SwitchOff()
     {
-        lightRemaining = lightTime;
         var on = new List<Room>();
         foreach(var r in Home.Instance.rooms)
         {
@@ -46,5 +72,35 @@ public class GameManager : MonoBehaviour
         if (on.Count > 0)
             on[Random.Range(0, on.Count)].Light = false;
 
+    }
+
+}
+
+[System.Serializable]
+public class Timer
+{
+    public float min;
+    public float max;
+    public float current;
+
+    public void Reset()
+    {
+        if (max < min)
+            current = min;
+        else
+            current = RandomGenerator.global.GetFloatRange(min, max);
+    }
+
+
+    public bool PassTime()
+    {
+        current -= Time.deltaTime;
+        if (current <= 0)
+        {
+            Reset();
+            return true;
+        }
+        else
+            return false;
     }
 }

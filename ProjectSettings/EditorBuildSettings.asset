@@ -5,10 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MainMenu.unity
     guid: bcb1f33e65dfa6140a3145388fedb272
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Main Game/Game.unity
     guid: 4052df226603bb944aaaa9175fd73b29
+  - enabled: 1
+    path: Assets/Scenes/test flavio.unity
+    guid: 7e67a23aa9475f7488579949686f15b1
   m_configObjects: {}

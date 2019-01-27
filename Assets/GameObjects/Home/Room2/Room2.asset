@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Room2
   m_EditorClassIdentifier: 
   id: 1
-  hall: 1
+  hall: 0
   roomChange: {fileID: 0}
   lightChange: {fileID: 0}
   x: 3
