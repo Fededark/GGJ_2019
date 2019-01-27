@@ -20,6 +20,14 @@ public class ActionManager : MonoBehaviour
         UpdateButton();
     }
 
+    private void Update()
+    {
+        if (action != null && Input.GetButtonDown("PlayerAction"))
+        {
+            action.DoAction();
+        }
+    }
+
     public void DoAction()
     {
         if (action != null)
