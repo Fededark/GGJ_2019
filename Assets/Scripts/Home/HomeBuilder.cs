@@ -20,7 +20,7 @@ public class HomeBuilder : ScriptableObject
         {
             room.id = roomIdx;
             roomIdx++;
-            info.roomDict.Add(room.id, room);
+            //info.roomDict.Add(room.id, room);
             for (int c = 0; c < 3; c++)
             {
                 for (int r = 0; r < 3; r++)
@@ -30,7 +30,7 @@ public class HomeBuilder : ScriptableObject
                     {
                         cell.id = cellIdx;
                         cellIdx++;
-                        info.cellDict.Add(cell.id, cell);
+                        //info.cellDict.Add(cell.id, cell);
                         home.cells[c + room.X - 1, r + room.Y - 1] = cell;
                     }
                 }
