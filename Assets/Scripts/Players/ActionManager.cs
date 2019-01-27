@@ -9,11 +9,17 @@ public class ActionManager : MonoBehaviour
     public Button button;
     public Image light, pick;
 
+    public AudioClip click, pickSound;
+
+    private AudioClip actionSound;
+
     private IAction action = null;
+    private AudioSource audio;
 
     private void Awake()
     {
         actionEvent.OnRaise += ActionEvent_OnRaise;
+        audio = GetComponent<AudioSource>();
     }
 
     private void Start()
@@ -25,6 +31,7 @@ public class ActionManager : MonoBehaviour
     {
         if (action != null && Input.GetButtonDown("PlayerAction"))
         {
+            audio.PlayOneShot(actionSound);
             action.DoAction();
         }
     }
@@ -37,12 +44,14 @@ public class ActionManager : MonoBehaviour
 
     private void ActionEvent_OnRaise(IAction obj)
     {
-        if (obj is SwitchOn && action != null)
+        bool isSwitch = obj is SwitchOn;
+        if (isSwitch && action != null)
             return;
 
         action = obj;
-        light.enabled = obj is SwitchOn;
+        light.enabled = isSwitch;
         pick.enabled = !light.enabled;
+        actionSound = isSwitch ? click : pickSound;
         button.gameObject.SetActive(obj != null);
     }
 
