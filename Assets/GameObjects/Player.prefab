@@ -376,6 +376,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   darkSpeed: 0.5
+  animations:
+  - {fileID: 9100000, guid: 29b09958c858c754a9b3e66b7572ee5c, type: 2}
+  - {fileID: 22100000, guid: c12f92f6ca43bf441b9299f2168ab758, type: 2}
+  - {fileID: 22100000, guid: 777f28b33ce91834488d8e4b04fb29a8, type: 2}
   canMove: 1
 --- !u!114 &2902797549554766588
 MonoBehaviour:

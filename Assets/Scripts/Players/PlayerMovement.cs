@@ -10,6 +10,8 @@ public class PlayerMovement : NetworkBehaviour
     public float darkSpeed;
     private Animator animator;
 
+    public RuntimeAnimatorController[] animations;
+
     public bool IsDark { get; set; }
 
     public bool canMove = true;
@@ -20,6 +22,7 @@ public class PlayerMovement : NetworkBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        animator.runtimeAnimatorController = animations[Random.Range(0, animations.Length)];
     }
 
     void FixedUpdate()
