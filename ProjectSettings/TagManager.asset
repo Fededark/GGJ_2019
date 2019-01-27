@@ -47,6 +47,12 @@ TagManager:
   - name: Doors
     uniqueID: 1723013415
     locked: 0
+  - name: Ojects
+    uniqueID: 1784482245
+    locked: 0
+  - name: Pickups
+    uniqueID: 3103311063
+    locked: 0
   - name: Player
     uniqueID: 1640900099
     locked: 0

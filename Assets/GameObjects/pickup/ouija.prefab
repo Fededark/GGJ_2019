@@ -94,5 +94,30 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 5d6869274726d5e41a04ff6f9ec15678,
         type: 2}
+    - target: {fileID: 2216562890812631820, guid: bceedf2f5a62cd74c975bd9c85f46290,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5946696070715360437, guid: bceedf2f5a62cd74c975bd9c85f46290,
+        type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 4.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 5946696070715360437, guid: bceedf2f5a62cd74c975bd9c85f46290,
+        type: 3}
+      propertyPath: moveWithTransform
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5946696070715360437, guid: bceedf2f5a62cd74c975bd9c85f46290,
+        type: 3}
+      propertyPath: simulationSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5946696070715360437, guid: bceedf2f5a62cd74c975bd9c85f46290,
+        type: 3}
+      propertyPath: SizeModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bceedf2f5a62cd74c975bd9c85f46290, type: 3}

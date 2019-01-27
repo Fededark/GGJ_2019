@@ -37,21 +37,14 @@ public class HomeBuilder : ScriptableObject
             }
             var go = room.InstantiateGO(parent);
             go.transform.position = new Vector3(room.X, room.Y, 0f);
-            room.SetVisible(room.hall);
+            room.SetVisible(room.hall);            
             if (room.hall)
             {
                 info.hall = room;
                 info.SpawnPoint = go.transform.position;
             }
+            room.Light = room.hall;
         }
-
-        var shuff = RandomGenerator.global.GetShuffled(new List<Room>(rooms));
-        int split = (shuff.Count + 1) / 2;
-        for (int i = 0; i < split; i++)
-            shuff[i].Light = false;
-        for (int i = split; i < shuff.Count; i++)
-            shuff[i].Light = true;
-        info.hall.Light = true;
 
         home.info = info;
         home.Init();

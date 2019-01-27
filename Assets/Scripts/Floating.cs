@@ -8,9 +8,16 @@ public class Floating : MonoBehaviour
     public float excursion = 1f;
     public float time = 1f;
 
+    private Vector3 basePos;
+
+    private void Awake()
+    {
+        basePos = target.localPosition;
+    }
+
     // Update is called once per frame
     void Update()
     {
-        target.localPosition = new Vector3(0f, Mathf.Sin(Time.time * time) * excursion, 0f);
+        target.localPosition = new Vector3(basePos.x, basePos.y + Mathf.Sin(Time.time * time) * excursion, basePos.z);
     }
 }
