@@ -17,7 +17,7 @@ TagManager:
   - Player
   - NotMyRoom
   - Shadow
-  - 
+  - Cursor
   - 
   - 
   - 
@@ -61,4 +61,7 @@ TagManager:
     locked: 0
   - name: HiddenRoom
     uniqueID: 1060187329
+    locked: 0
+  - name: Cursor
+    uniqueID: 1840305857
     locked: 0

@@ -37,6 +37,9 @@ public class ActionManager : MonoBehaviour
 
     private void ActionEvent_OnRaise(IAction obj)
     {
+        if (obj is SwitchOn && action != null)
+            return;
+
         action = obj;
         light.enabled = obj is SwitchOn;
         pick.enabled = !light.enabled;
