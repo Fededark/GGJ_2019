@@ -296,6 +296,10 @@ namespace Prototype.NetworkLobby
             return true;
         }
 
+        public override void OnServerAddPlayer(NetworkConnection conn, short playerControllerId)
+        {
+            base.OnServerAddPlayer(conn, playerControllerId);
+        }
         // --- Countdown management
 
         public override void OnLobbyServerPlayersReady()

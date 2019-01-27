@@ -4,17 +4,19 @@ using UnityEngine;
 using UnityEngine.Networking;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class PlayerMovement : NetworkBehaviour
+public class NetPlayerMovementBehaviour : NetworkBehaviour
 {
     public float speed;
-    public float darkSpeed;
+    public float speedInDark;
+
     private Animator animator;
-
-    public bool IsDark { get; set; }
-
-    public bool canMove = true;
-
     private Rigidbody2D rb;
+
+    [SyncVar]
+    bool isDark;
+
+    [SyncVar]
+    bool canMove = true;
 
     void Awake()
     {
@@ -24,11 +26,22 @@ public class PlayerMovement : NetworkBehaviour
 
     void FixedUpdate()
     {
+        if (!isLocalPlayer)
+        {
+            return;
+        }
+
+        float moveHorizontal = Input.GetAxis("Horizontal");
+        float moveVertical = Input.GetAxis("Vertical");
+
+        CmdMove(moveHorizontal, moveVertical);
+    }
+
+    [Command]
+    public void CmdMove(float moveHorizontal, float moveVertical)
+    {
         if (canMove)
         {
-            float moveHorizontal = Input.GetAxis("Horizontal");
-            float moveVertical = Input.GetAxis("Vertical");
-
             if (Mathf.Approximately(moveHorizontal + moveVertical, 0f))
             {
                 animator.SetBool("moving", false);
@@ -54,13 +67,12 @@ public class PlayerMovement : NetworkBehaviour
 
             }
 
-            rb.velocity = (transform.right * moveHorizontal + transform.up * moveVertical) 
-                * (IsDark ? darkSpeed : speed);
+            rb.velocity = (transform.right * moveHorizontal + transform.up * moveVertical)
+                * (isDark ? speedInDark : speed);
         }
         else
         {
             rb.velocity = Vector2.zero;
         }
     }
-
 }
