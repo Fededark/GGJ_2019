@@ -7,6 +7,7 @@ public class ActionManager : MonoBehaviour
 {
     public ActionEvent actionEvent;
     public Button button;
+    public Image light, pick;
 
     private IAction action = null;
 
@@ -37,6 +38,8 @@ public class ActionManager : MonoBehaviour
     private void ActionEvent_OnRaise(IAction obj)
     {
         action = obj;
+        light.enabled = obj is SwitchOn;
+        pick.enabled = !light.enabled;
         button.gameObject.SetActive(obj != null);
     }
 
