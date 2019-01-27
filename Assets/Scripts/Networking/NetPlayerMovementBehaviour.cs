@@ -22,55 +22,64 @@ public class NetPlayerMovementBehaviour : NetworkBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+
+        if (!isLocalPlayer)
+            rb.simulated = false;
     }
 
-    private float moveHorizontal;
-    private float moveVertical;
+    //[SyncVar]
+    //private Vector3 pos;
+    [SyncVar]
+    private bool animMoving;
+    [SyncVar]
+    private int animDir;
 
     void Update()
     {
-        if (!isLocalPlayer) return;
-
-        if (canMove)
-            SetMovement(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        else
-            SetMovement(0, 0);
-
-        CmdMove(moveHorizontal, moveVertical);
+        //if (isLocalPlayer)
+        //    pos = transform.position;
+        //else
+        //    transform.position = pos;
+        animator.SetBool("moving", animMoving);
+        animator.SetInteger("Direction", animDir);
     }
 
-    [Command]
-    public void CmdMove(float moveHorizontal, float moveVertical)
-    {
-        SetMovement(moveHorizontal, moveVertical);
-        RpcMove(moveHorizontal, moveVertical);
-    }
+    //[Command]
+    //public void CmdMove(float moveHorizontal, float moveVertical)
+    //{
+    //    SetMovement(moveHorizontal, moveVertical);
+    //    RpcMove(moveHorizontal, moveVertical);
+    //}
 
-    [ClientRpc]
-    public void RpcMove(float moveHorizontal, float moveVertical)
-    {
-        if (isLocalPlayer) return;        
-        SetMovement(moveHorizontal, moveVertical);
-    }
+    //[ClientRpc]
+    //public void RpcMove(float moveHorizontal, float moveVertical)
+    //{
+    //    if (isLocalPlayer) return;        
+    //    SetMovement(moveHorizontal, moveVertical);
+    //}
 
-    public void SetMovement(float moveHorizontal, float moveVertical)
-    {
-        this.moveHorizontal = moveHorizontal;
-        this.moveVertical = moveVertical;
-    }
+    //public void SetMovement(float moveHorizontal, float moveVertical)
+    //{
+    //    this.moveHorizontal = moveHorizontal;
+    //    this.moveVertical = moveVertical;
+    //}
 
     void FixedUpdate()
     {
+        if (!isLocalPlayer) return;
+
+        float moveHorizontal = Input.GetAxis("Horizontal");
+        float moveVertical = Input.GetAxis("Vertical");
         if (Mathf.Approximately(moveHorizontal + moveVertical, 0f))
         {
-            animator.SetBool("moving", false);
+            animMoving = false;
         }
         else
         {
-            animator.SetBool("moving", true);
+            animMoving = true;
             if (Mathf.Abs(moveHorizontal) > Mathf.Abs(moveVertical))
             {
-                animator.SetInteger("Direction", 1);
+                animDir = 1;
                 if ((moveHorizontal < 0f && transform.localScale.x > 0f) || (moveHorizontal > 0f && transform.localScale.x < 0f))
                     transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
             }
@@ -79,9 +88,9 @@ public class NetPlayerMovementBehaviour : NetworkBehaviour
                 if (transform.localScale.x < 0f)
                     transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
                 if (moveVertical > 0f)
-                    animator.SetInteger("Direction", 2);
+                    animDir = 2;
                 else
-                    animator.SetInteger("Direction", 0);
+                    animDir = 0;
             }
 
         }
