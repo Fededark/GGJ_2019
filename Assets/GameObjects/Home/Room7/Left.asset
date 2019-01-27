@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Left
   m_EditorClassIdentifier: 
   id: 23
-  walls: 02000000000000000200000002000000
+  walls: 02000000010000000200000002000000
   room: {fileID: 11400000, guid: aaf2f443af69fdf4baabfbe31c32921c, type: 2}
   doorsState:
   - {fileID: 11400000, guid: 8aa45802ea361e1478715d3aa56d1170, type: 2}

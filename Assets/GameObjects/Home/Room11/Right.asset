@@ -17,6 +17,6 @@ MonoBehaviour:
   room: {fileID: 11400000, guid: 79f7d20332e1af54492fa1f1dadc874c, type: 2}
   doorsState:
   - {fileID: 11400000, guid: fe6c3cec6bd9a9641814ab5a7895bee7, type: 2}
-  - {fileID: 11400000, guid: 57570dd21f1867b4d997de41c9b1584b, type: 2}
-  - {fileID: 11400000, guid: 8fb49b2660619e342b9bf3ed8ea5ffff, type: 2}
+  - {fileID: 11400000, guid: 4416ce2c5410c78418e0a30a9b432e9a, type: 2}
+  - {fileID: 11400000, guid: dc1d0bec1ffce2247800bee24b1c8b93, type: 2}
   - {fileID: 0}
