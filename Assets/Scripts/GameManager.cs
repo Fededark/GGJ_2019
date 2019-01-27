@@ -3,10 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     public BoolEvent winEvent;
+    public Text countdown;
 
     public Timer totalTime;
     public Timer moveTime;
@@ -15,6 +17,9 @@ public class GameManager : MonoBehaviour
     public BoolEvent[] objects;
 
     public int taken = 0;
+
+    public AudioClip click;
+    private AudioSource audio;
 
     private void Awake()
     {
@@ -26,6 +31,8 @@ public class GameManager : MonoBehaviour
         {
             ev.OnRaise += Ev_OnRaise;
         }
+        audio = GetComponent<AudioSource>();
+
     }
 
     private void WinEvent_OnRaise(bool obj)
@@ -48,6 +55,12 @@ public class GameManager : MonoBehaviour
         {
             //game over
             SceneManager.LoadScene("lose");
+            return;
+        }
+        if (totalTime.current < 31)
+        {
+            countdown.gameObject.SetActive(true);
+            countdown.text = Mathf.FloorToInt(totalTime.current)+"";
         }
 
         if (moveTime.PassTime())
@@ -60,6 +73,7 @@ public class GameManager : MonoBehaviour
     public void MoveRoom()
     {
         RoomMoveManager.Instance.RandomMove();
+        audio.Play();
     }
 
     public void SwitchOff()
@@ -71,7 +85,10 @@ public class GameManager : MonoBehaviour
                 on.Add(r);
         }
         if (on.Count > 0)
+        {
             on[Random.Range(0, on.Count)].Light = false;
+            audio.PlayOneShot(click);
+        }
 
     }
 
