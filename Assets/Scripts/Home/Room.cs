@@ -27,6 +27,11 @@ public class Room : ScriptableObject
     {
         var go = Instantiate(prefab, parent);
         GO = go;
+
+        foreach (var sw in go.GetComponentsInChildren<SwitchOn>())
+        {
+            sw.room = this;
+        }
         return go;
     }
 
@@ -57,7 +62,6 @@ public class Room : ScriptableObject
 
     private void OnEnable()
     {
-
         rotation = 0;
         X = x;
         Y = y;
