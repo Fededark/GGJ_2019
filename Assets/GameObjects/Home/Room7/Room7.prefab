@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8312552664431465268}
   - component: {fileID: 4522112355356033606}
   m_Layer: 0
-  m_Name: TopCollider
+  m_Name: BottomCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25,13 +25,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 852020784289641094}
-  m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0.5010002, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.70710677}
+  m_LocalPosition: {x: -0.943, y: -0.495, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7827320016535036720}
   m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90.00001}
 --- !u!61 &8312552664431465268
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -247,13 +247,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3824185749698633279}
-  m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0.9400002, y: 0.501, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.70710677}
+  m_LocalPosition: {x: -0.003, y: -0.492, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7827320016535036720}
   m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90.00001}
 --- !u!61 &724826753963927887
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -494,7 +494,7 @@ PrefabInstance:
     - target: {fileID: 2780269226025302731, guid: 067d89b97b7a76d489479fc9166b8599,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.504
+      value: 0.503
       objectReference: {fileID: 0}
     - target: {fileID: 2780269226025302731, guid: 067d89b97b7a76d489479fc9166b8599,
         type: 3}
@@ -731,7 +731,7 @@ PrefabInstance:
     - target: {fileID: 2780269226025302731, guid: 067d89b97b7a76d489479fc9166b8599,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.499
+      value: 0.502
       objectReference: {fileID: 0}
     - target: {fileID: 2780269226025302731, guid: 067d89b97b7a76d489479fc9166b8599,
         type: 3}
@@ -800,13 +800,13 @@ PrefabInstance:
     - target: {fileID: 6211937020329884121, guid: a8a7aa1067c6bbd4c89994c76574715e,
         type: 3}
       propertyPath: m_Name
-      value: Room11
+      value: Room7
       objectReference: {fileID: 0}
     - target: {fileID: 6140142550269517775, guid: a8a7aa1067c6bbd4c89994c76574715e,
         type: 3}
       propertyPath: room
       value: 
-      objectReference: {fileID: 11400000, guid: 79f7d20332e1af54492fa1f1dadc874c,
+      objectReference: {fileID: 11400000, guid: aaf2f443af69fdf4baabfbe31c32921c,
         type: 2}
     - target: {fileID: 6211937020329884122, guid: a8a7aa1067c6bbd4c89994c76574715e,
         type: 3}
