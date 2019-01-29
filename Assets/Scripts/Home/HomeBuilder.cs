@@ -18,6 +18,7 @@ public class HomeBuilder : ScriptableObject
         int cellIdx = 1;
         foreach (var room in rooms)
         {
+            room.Init();
             room.id = roomIdx;
             roomIdx++;
             //info.roomDict.Add(room.id, room);

@@ -62,6 +62,12 @@ public class Room : ScriptableObject
 
     private void OnEnable()
     {
+        Init();
+    }
+
+    public void Init()
+    {
+        connections.Clear();
         rotation = 0;
         X = x;
         Y = y;
