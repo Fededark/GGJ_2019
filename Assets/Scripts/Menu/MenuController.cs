@@ -22,8 +22,11 @@ public class MenuController : MonoBehaviour
 
         startGame.onClick.AddListener(StartGame);
         showCredits.onClick.AddListener(ShowCredits);
-        quitGame.onClick.AddListener(QuitGame);
         backButton.onClick.AddListener(ShowMainMenu);
+        if (Application.platform == RuntimePlatform.WebGLPlayer)
+            quitGame.gameObject.SetActive(false);
+        else
+            quitGame.onClick.AddListener(QuitGame);
     }
 
     public void StartGame()
