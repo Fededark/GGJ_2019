@@ -21,6 +21,12 @@ public class PlayerDoorMovement : MonoBehaviour
         homeInfo.globalLightChange.OnRaise += GlobalLightChange_OnRaise;
     }
 
+    private void OnDestroy()
+    {
+        homeInfo.doorPassEvent.OnDoorPassed -= OnDoorPassed;
+        homeInfo.globalLightChange.OnRaise -= GlobalLightChange_OnRaise;
+    }
+
     private void GlobalLightChange_OnRaise(bool obj)
     {
         movement.IsDark = !actualRoom.Light;

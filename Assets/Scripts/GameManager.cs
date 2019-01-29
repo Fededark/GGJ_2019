@@ -35,6 +35,15 @@ public class GameManager : MonoBehaviour
 
     }
 
+    private void OnDestroy()
+    {
+        winEvent.OnRaise -= WinEvent_OnRaise;
+        foreach (var ev in objects)
+        {
+            ev.OnRaise -= Ev_OnRaise;
+        }
+    }
+
     private void WinEvent_OnRaise(bool obj)
     {
         if (taken >= objects.Length)

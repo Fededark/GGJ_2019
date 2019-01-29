@@ -23,6 +23,17 @@ public class BoolEventListener : MonoBehaviour
             Debug.LogWarning("missing event", gameObject);
     }
 
+    private void OnDestroy()
+    {
+        if (boolEvent != null)
+        {
+            if (invert)
+                boolEvent.OnRaise -= listener.Invoke;
+            else
+                boolEvent.OnRaise -= invertRaise;
+        }
+    }
+
     private void invertRaise(bool obj)
     {
         listener.Invoke(!obj);

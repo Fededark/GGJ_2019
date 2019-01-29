@@ -22,6 +22,11 @@ public class ActionManager : MonoBehaviour
         audio = GetComponent<AudioSource>();
     }
 
+    private void OnDestroy()
+    {
+        actionEvent.OnRaise -= ActionEvent_OnRaise;
+    }
+
     private void Start()
     {
         UpdateButton();

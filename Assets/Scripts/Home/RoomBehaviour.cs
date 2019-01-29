@@ -15,8 +15,14 @@ public class RoomBehaviour : MonoBehaviour
 
     private void Awake()
     {
-        room.roomChange.OnRaise += RoomChange_OnRaise; ;
+        room.roomChange.OnRaise += RoomChange_OnRaise;
         room.lightChange.OnRaise += darkness.SetActive;
+    }
+
+    private void OnDestroy()
+    {
+        room.roomChange.OnRaise -= RoomChange_OnRaise;
+        room.lightChange.OnRaise -= darkness.SetActive;
     }
 
     private void RoomChange_OnRaise(bool obj)
