@@ -84,10 +84,10 @@ public class RoomBehaviour : MonoBehaviour
         }
     }
 
-    private void OnMouseUpAsButton()
-    {
-        if (Home.Instance.info.playerMode) return;
-        RoomMoveManager.Instance.OnRoomClick(this);
-    }
+    //private void OnMouseUpAsButton()
+    //{
+    //    if (Home.Instance.info.playerMode) return;
+    //    RoomMoveManager.Instance.OnRoomClick(this);
+    //}
 
 }

@@ -19,7 +19,7 @@ public class TestMove : MonoBehaviour
 
     public void Rotate(Room r)
     {
-        r.Rotate(false);
+        r.Rotate(true);
         r.GO.GetComponent<RoomBehaviour>().ApplyRotation();
     }
 }

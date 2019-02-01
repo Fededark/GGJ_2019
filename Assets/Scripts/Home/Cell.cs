@@ -18,31 +18,41 @@ public class Cell : ScriptableObject
 
     public WallType GetWallType(int side)
     {
-        return walls[(side + room.rotation) % 4];
+        return walls[ActualSide(side, room.rotation)];
+    }
+
+    public WallType GetWallType(int side, int rotation)
+    {
+        return walls[ActualSide(side, rotation)];
+    }
+
+    public static int ActualSide(int side, int rotation)
+    {
+        return (side + 4 - rotation) % 4;
     }
 
     public void checkDoorState(int direction, bool locked)
     {
-        var e = doorsState[(direction + room.rotation) % 4];
+        var e = doorsState[ActualSide(direction, room.rotation)];
         if (e != null)
             e.Raise(locked);
     }
 
 
-    public void UpdateDoorsState(Home father, int x, int y)
-    {
-        WallType top = father.GetCell(x, y + 1).GetWallType(Cell.DOWN);
-        WallType down = father.GetCell(x, y - 1).GetWallType(Cell.UP);
-        WallType left = father.GetCell(x - 1, y).GetWallType(Cell.RIGHT);
-        WallType right = father.GetCell(x + 1, y).GetWallType(Cell.LEFT);
+    //public void UpdateDoorsState(Home father, int x, int y)
+    //{
+    //    WallType top = father.GetCell(x, y + 1).GetWallType(Cell.DOWN);
+    //    WallType down = father.GetCell(x, y - 1).GetWallType(Cell.UP);
+    //    WallType left = father.GetCell(x - 1, y).GetWallType(Cell.RIGHT);
+    //    WallType right = father.GetCell(x + 1, y).GetWallType(Cell.LEFT);
 
-        checkDoorState(Cell.UP, top.Equals(GetWallType(Cell.UP)));
-        checkDoorState(Cell.DOWN, down.Equals(GetWallType(Cell.DOWN)));
-        checkDoorState(Cell.LEFT, left.Equals(GetWallType(Cell.LEFT)));
-        checkDoorState(Cell.RIGHT, right.Equals(GetWallType(Cell.RIGHT)));
+    //    checkDoorState(Cell.UP, top.Equals(GetWallType(Cell.UP)));
+    //    checkDoorState(Cell.DOWN, down.Equals(GetWallType(Cell.DOWN)));
+    //    checkDoorState(Cell.LEFT, left.Equals(GetWallType(Cell.LEFT)));
+    //    checkDoorState(Cell.RIGHT, right.Equals(GetWallType(Cell.RIGHT)));
 
 
-    }
+    //}
 
     
     

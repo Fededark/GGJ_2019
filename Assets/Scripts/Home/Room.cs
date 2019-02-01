@@ -123,6 +123,13 @@ public class Room : ScriptableObject
                     tmp[2 - r, c] = shape[c, r];
             }
         }
+        for (int x = 0; x < 3; x++)
+        {
+            for (int y = 0; y < 3; y++)
+            {
+                shape[x, y] = tmp[x, y];
+            }
+        }
 
         rotation = (rotation + (clockwise ? 1 : 3)) % 4;
     }
@@ -160,7 +167,7 @@ public class Room : ScriptableObject
     {
         Cell cell = shape[x+1, y+1];
         if (cell == null) return WallType.Empty;
-        return cell.walls[(side + rotation) % 4];
+        return cell.GetWallType(side, rotation);
     }
 
 

@@ -247,7 +247,7 @@ public class Home
         {
             for (int y = 0; y < cells.GetLength(1); y++)
             {
-                if (cells[x,y] == null && CanBePlaced(r, x,y))
+                if (x != r.X && y != r.Y && CanBePlaced(r, x, y))
                 {
                     output.Add(new Vector2Int(x, y));
                 }
@@ -350,20 +350,20 @@ public class Home
     }
 
 
-    private void UpdateDoors()
-    {
-        int xLim = cells.GetLength(0);
-        int yLim = cells.GetLength(1);
+    //private void UpdateDoors()
+    //{
+    //    int xLim = cells.GetLength(0);
+    //    int yLim = cells.GetLength(1);
 
-        for (int x = 0; x < xLim; x++)
-        {
-            for (int y = 0; y < yLim; y++)
-            {
-                if (cells[x, y])
-                    cells[x, y].UpdateDoorsState(this, x, y);
-            }
-        }
-    }
+    //    for (int x = 0; x < xLim; x++)
+    //    {
+    //        for (int y = 0; y < yLim; y++)
+    //        {
+    //            if (cells[x, y])
+    //                cells[x, y].UpdateDoorsState(this, x, y);
+    //        }
+    //    }
+    //}
 
 
 
