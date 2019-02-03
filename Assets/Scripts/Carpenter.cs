@@ -12,6 +12,7 @@ public class Carpenter : MonoBehaviour
         if (playerPrefab != null)
         {
             GameObject player = Instantiate(playerPrefab);
+            home.info.playerTransform = player.transform;
             player.GetComponent<PlayerDoorMovement>().AssignTo(home.info.hall);
             player.transform.position = home.info.SpawnPoint;
         }

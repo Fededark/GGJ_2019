@@ -10,24 +10,36 @@ public class RoomBehaviour : MonoBehaviour
     public GameObject darkness;
     public GameObject hidden;
     public HomeInfo info;
+    public Transform[] objectPositions;
 
     private bool isDark, isHidden;
+    private GameObject pickup = null;
 
     private void Awake()
     {
         room.roomChange.OnRaise += RoomChange_OnRaise;
-        room.lightChange.OnRaise += darkness.SetActive;
+        room.lightChange.OnRaise += LightChange_OnRaise;
     }
 
     private void OnDestroy()
     {
         room.roomChange.OnRaise -= RoomChange_OnRaise;
-        room.lightChange.OnRaise -= darkness.SetActive;
+        room.lightChange.OnRaise -= LightChange_OnRaise;
     }
 
-    private void RoomChange_OnRaise(bool obj)
+    private void LightChange_OnRaise(bool dark)
     {
-        hidden.SetActive(!obj);
+        darkness.SetActive(dark);
+        //TODO pickup
+    }
+
+    private void RoomChange_OnRaise(bool entered)
+    {
+        hidden.SetActive(!entered);
+        if (entered && pickup != null)
+        {
+            pickup.transform.up = info.playerTransform.up;
+        }
     }
 
     public void ApplyRotation()
@@ -82,6 +94,12 @@ public class RoomBehaviour : MonoBehaviour
 
             }
         }
+    }
+
+    public void PlaceObject(GameObject prefab)
+    {
+        pickup = Instantiate(prefab, transform);
+        pickup.transform.position = objectPositions[Random.Range(0, objectPositions.Length)].position;
     }
 
     //private void OnMouseUpAsButton()

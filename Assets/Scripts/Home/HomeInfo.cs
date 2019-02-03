@@ -13,6 +13,7 @@ public class HomeInfo : ScriptableObject
     public Vector3 SpawnPoint { get; set; }
 
     public bool playerMode;
+    public Transform playerTransform { get; set; }
 
     public Dictionary<int, Room> roomDict = new Dictionary<int, Room>();
     public Dictionary<int, Cell> cellDict = new Dictionary<int, Cell>();
