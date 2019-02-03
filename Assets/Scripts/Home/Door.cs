@@ -2,7 +2,7 @@
 
 public class Door : MonoBehaviour
 {
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         Home.Instance.TryToMove(collision.gameObject.transform.position);        
     }
