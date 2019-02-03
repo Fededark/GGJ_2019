@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8bfdf0537205d24994d2f581ca16002, type: 3}
   m_Name: Home Info
   m_EditorClassIdentifier: 
-  doorDistance: {x: 0.35, y: 0.35}
+  doorDistance: {x: 0.35, y: 0.36}
   doorPassEvent: {fileID: 11400000, guid: 8968330d658db42479bad90328374edf, type: 2}
-  hall: {fileID: 11400000, guid: 3bba88deb4b74ac49883a4a9727a5029, type: 2}
+  hall: {fileID: 11400000, guid: 46c2eb23652b85243951f2eddcc6d560, type: 2}
   globalLightChange: {fileID: 11400000, guid: d849fd8ba5cdf1f4ca78bd0483c6cf3c, type: 2}
-  playerMode: 0
+  playerMode: 1
   roomPositionIndicatorPrefab: {fileID: 3201968422318855540, guid: 3d6bcffb10ad4b348ad98cf565dbd9db,
     type: 3}

@@ -8,7 +8,7 @@ public class PlayerMovement : NetworkBehaviour
 {
     public float speed;
     public float darkSpeed;
-    private Animator animator;
+    public Animator animator;
     private AudioSource audio;
 
     public RuntimeAnimatorController[] animations;
@@ -23,7 +23,6 @@ public class PlayerMovement : NetworkBehaviour
     {
         audio = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
         animator.runtimeAnimatorController = animations[Random.Range(0, animations.Length)];
     }
 
