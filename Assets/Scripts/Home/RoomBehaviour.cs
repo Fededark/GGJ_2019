@@ -96,10 +96,13 @@ public class RoomBehaviour : MonoBehaviour
         }
     }
 
-    public void PlaceObject(GameObject prefab)
+    public bool PlaceObject(GameObject prefab)
     {
+        if (objectPositions.Length == 0)
+            return false;
         pickup = Instantiate(prefab, transform);
         pickup.transform.position = objectPositions[Random.Range(0, objectPositions.Length)].position;
+        return true;
     }
 
     //private void OnMouseUpAsButton()

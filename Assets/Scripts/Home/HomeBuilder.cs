@@ -8,6 +8,7 @@ public class HomeBuilder : ScriptableObject
 {
     public HomeInfo info;
     public Vector2Int size;
+    public GameObject[] pickups;
     public Room[] rooms;
 
     public Home Build(Transform parent)
@@ -51,6 +52,20 @@ public class HomeBuilder : ScriptableObject
         home.Init();
         home.BuildConnections(rooms);
         Home.Instance = home;
+
+        List<Room> shrooms = new List<Room>(rooms).GetShuffled();
+        int i = 0;
+        foreach (var r in shrooms)
+        {
+            if (r.hall) continue;
+            if (r.GO.GetComponent<RoomBehaviour>().PlaceObject(pickups[i]))
+            {
+                i++;
+                if (i >= pickups.Length)
+                    break;
+            }
+        }
+
         return home;
     }
 }
