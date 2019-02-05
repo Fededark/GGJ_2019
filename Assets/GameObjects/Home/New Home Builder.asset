@@ -14,6 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   info: {fileID: 11400000, guid: be140c6839345284c98ae519e7464e5b, type: 2}
   size: {x: 12, y: 12}
+  pickups:
+  - {fileID: 1318208049502558382, guid: 7827652c1aaca9445804f0e6aa6c873a, type: 3}
+  - {fileID: 4210544093795358918, guid: f7f8d177a988d4e4f844657a421d0832, type: 3}
+  - {fileID: 2743944699512556506, guid: 4d0bfd5d2107fd5408bd99a41f75a172, type: 3}
+  - {fileID: 7867075788908672394, guid: ae3693a08d748d14caf5c0521d50c70f, type: 3}
   rooms:
   - {fileID: 11400000, guid: 3bba88deb4b74ac49883a4a9727a5029, type: 2}
   - {fileID: 11400000, guid: e8b2bff8fc3ccce468782f3937e7a044, type: 2}

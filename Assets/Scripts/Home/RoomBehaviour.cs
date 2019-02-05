@@ -10,24 +10,44 @@ public class RoomBehaviour : MonoBehaviour
     public GameObject darkness;
     public GameObject hidden;
     public HomeInfo info;
+    public Transform[] objectPositions;
 
     private bool isDark, isHidden;
+    private GameObject pickup = null;
 
     private void Awake()
     {
         room.roomChange.OnRaise += RoomChange_OnRaise;
-        room.lightChange.OnRaise += darkness.SetActive;
+        room.lightChange.OnRaise += LightChange_OnRaise;
     }
 
     private void OnDestroy()
     {
         room.roomChange.OnRaise -= RoomChange_OnRaise;
-        room.lightChange.OnRaise -= darkness.SetActive;
+        room.lightChange.OnRaise -= LightChange_OnRaise;
     }
 
-    private void RoomChange_OnRaise(bool obj)
+    private void LightChange_OnRaise(bool dark)
     {
-        hidden.SetActive(!obj);
+        isDark = dark;
+        darkness.SetActive(isDark);
+        //TODO pickup
+    }
+
+    private void ShowDarkness()
+    {
+        darkness.SetActive(isDark);
+    }
+
+    private void RoomChange_OnRaise(bool entered)
+    {
+        isHidden = !entered;
+        darkness.layer = LayerMask.NameToLayer(isHidden ? "ShadowMap" : "ShadowPlayer");
+        hidden.SetActive(isHidden);
+        if (entered && pickup != null)
+        {
+            pickup.transform.up = info.playerTransform.up;
+        }
     }
 
     public void ApplyRotation()
@@ -82,6 +102,15 @@ public class RoomBehaviour : MonoBehaviour
 
             }
         }
+    }
+
+    public bool PlaceObject(GameObject prefab)
+    {
+        if (objectPositions.Length == 0)
+            return false;
+        pickup = Instantiate(prefab, transform);
+        pickup.transform.position = objectPositions[Random.Range(0, objectPositions.Length)].position;
+        return true;
     }
 
     //private void OnMouseUpAsButton()
