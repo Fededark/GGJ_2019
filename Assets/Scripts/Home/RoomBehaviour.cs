@@ -29,13 +29,21 @@ public class RoomBehaviour : MonoBehaviour
 
     private void LightChange_OnRaise(bool dark)
     {
-        darkness.SetActive(dark);
+        isDark = dark;
+        darkness.SetActive(isDark);
         //TODO pickup
+    }
+
+    private void ShowDarkness()
+    {
+        darkness.SetActive(isDark);
     }
 
     private void RoomChange_OnRaise(bool entered)
     {
-        hidden.SetActive(!entered);
+        isHidden = !entered;
+        darkness.layer = LayerMask.NameToLayer(isHidden ? "ShadowMap" : "ShadowPlayer");
+        hidden.SetActive(isHidden);
         if (entered && pickup != null)
         {
             pickup.transform.up = info.playerTransform.up;
